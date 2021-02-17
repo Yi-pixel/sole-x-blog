@@ -1,0 +1,12 @@
+{
+    "name": "sole-x/blog",
+    "description": "a blog plugin, based laravel",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Yi",
+            "email": "m@2vy.cc"
+        }
+    ],
+    "require": {}
+}
