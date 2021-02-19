@@ -35,17 +35,21 @@ class BlogServiceProvider extends ServiceProvider
         }
         spl_autoload_register(function ($class) {
             $class = ltrim($class, '\\');
-            if (Str::startsWith($class, 'SoleX\\Blog')) {
-                $paths = explode('\\', $class);
-                array_splice($paths, 0, 2);
-                array_unshift($paths, Str::snake(array_shift($paths)));
-                $path = implode('/', $paths);
-                $path .= '.php';
-                $file = __DIR__ . '/' . $path;
-                if (is_file($file)) {
-                    require $file;
-                    return true;
-                }
+            if (!Str::startsWith($class, 'SoleX\\Blog')) {
+                return false;
+            }
+
+            $paths = explode('\\', $class);
+            array_splice($paths, 0, 2);
+            array_unshift($paths, Str::snake(array_shift($paths)));
+
+            $path = implode('/', $paths);
+            $path .= '.php';
+            $file = __DIR__ . '/' . $path;
+
+            if (is_file($file)) {
+                require $file;
+                return true;
             }
             return false;
         });
