@@ -11,6 +11,8 @@ use SoleX\Blog\App\Repository\Post\PostRepository;
 
 class BlogServiceProvider extends ServiceProvider
 {
+    public const NAMESPACE = 'sole-x-blog';
+
     public function register()
     {
         $this->registerLoader();
@@ -45,6 +47,7 @@ class BlogServiceProvider extends ServiceProvider
                     return true;
                 }
             }
+            return false;
         });
     }
 
@@ -60,19 +63,19 @@ class BlogServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $namespace = 'sole-x-blog';
+        $namespace = self::NAMESPACE;
         $this->registerMigration();
 
-        $this->loadTranslationsFrom(__DIR__ . '/storage/lang', $namespace);
+        $this->loadTranslationsFrom(__DIR__ . '/storage/lang/', $namespace);
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
-        $this->loadViewsFrom(__DIR__ . '/storage/views', $namespace);
+        $this->loadViewsFrom(__DIR__ . '/storage/views/', $namespace);
 
         if ($this->app->runningInConsole()) {
             $this->commands($this->registerCommands());
         }
 
         $this->publishes([
-            __DIR__ . '/resources' => public_path('vendor/' . $namespace),
+            __DIR__ . '/resources/' => public_path('vendor/' . $namespace),
         ], 'resource');
         $this->publishes([
             __DIR__ . '/config/blog.php' => config_path('blog.php'),
