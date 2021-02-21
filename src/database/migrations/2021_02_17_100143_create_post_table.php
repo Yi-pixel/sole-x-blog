@@ -20,6 +20,7 @@ class CreatePostTable extends Migration
             $table->timestamp('review_at')->nullable()->comment('审核时间');
             $table->mediumText('content')->comment('文章内容');
             $table->unsignedInteger('views')->comment('浏览量');
+            $table->unsignedTinyInteger('status')->comment('状态: 0(草稿),1(已发布)')->index();
         });
     }
 
