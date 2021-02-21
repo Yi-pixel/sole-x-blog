@@ -23,7 +23,7 @@ class CreateCommentTable extends Migration
             $table->unsignedBigInteger('post_id')->comment('主题ID')->index();
             $table->mediumText('content')->comment('评论内容(支持 markdown)');
             $table->unsignedBigInteger('reply_id')->comment('评论了')->default(0)->index();
-            $table->json('extra')->comment('其他有价值的信息')->default('{}');
+            $table->json('extra')->comment('其他有价值的信息');
         });
     }
 
