@@ -10,7 +10,8 @@
     ],
     "require": {
         "php": "^7.3|^8.0",
-        "illuminate/support": "^8.0"
+        "illuminate/support": "^8.0",
+        "sole-x/auth": "*"
     },
     "autoload": {
         "psr-4": {
@@ -21,7 +22,6 @@
         "laravel": {
             "providers": [
                 "\\SoleX\\Blog\\BlogServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\AuthServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\CategoryRouterServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\PageRouterServiceProvider"
             ],

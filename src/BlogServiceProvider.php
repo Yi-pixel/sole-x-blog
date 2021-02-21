@@ -6,6 +6,7 @@ namespace SoleX\Blog;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use SoleX\Auth\UserModel;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -15,6 +16,8 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->registerLoader();
         $this->mergeConfigFrom(__DIR__ . '/config/blog.php', 'blog');
+
+        $this->registerUserWrapper();
         $this->registerConfigBinds();
     }
 
@@ -51,6 +54,11 @@ class BlogServiceProvider extends ServiceProvider
             }
             return false;
         });
+    }
+
+    private function registerUserWrapper()
+    {
+        $this->app->bind(UserModel::class, App\Models\UserModel::class);
     }
 
     private function registerConfigBinds(): void
