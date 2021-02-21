@@ -11,6 +11,13 @@ use SoleX\Blog\BlogServiceProvider;
 
 trait ViewTrait
 {
+    public function pages(
+        string $path = '',
+        array|object $data = []
+    ) {
+        return $this->view('pages.' . $path, $data);
+    }
+
     /**
      * 渲染模板，并且自动使用命名空间，并且使用
      *

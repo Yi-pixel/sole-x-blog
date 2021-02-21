@@ -73,7 +73,7 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->loadTranslationsFrom(__DIR__ . '/storage/lang/', $namespace);
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
-        $this->loadViewsFrom(__DIR__ . '/storage/views/', $namespace);
+        $this->loadViewsFrom(__DIR__ . '/resources/views/', $namespace);
 
         if ($this->app->runningInConsole()) {
             $this->commands($this->registerCommands());

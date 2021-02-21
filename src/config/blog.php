@@ -9,12 +9,13 @@ use SoleX\Blog\App\Repositories\SettingRepository;
 use SoleX\Blog\App\Services\PageService;
 
 return [
+    'url_prefix'     => '/blog',
     'bind_class'     => [
     ],
     'bind_singleton' => [
         Post::class                                           => PostRepository::class,
         \SoleX\Blog\App\Contracts\Services\PageService::class => PageService::class,
         Page::class                                           => PageRepository::class,
-        Setting::class => SettingRepository::class,
+        Setting::class                                        => SettingRepository::class,
     ],
 ];
