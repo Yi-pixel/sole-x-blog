@@ -18,7 +18,7 @@ class CreateUserTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->string('name', 30)->comment('用户名（可用于登录）')->unique();
-            $table->string('password_hash', 200)->comment('密码 Hash');
+            $table->string('password', 200)->comment('密码 Hash');
             $table->string('nickname', 30)->comment('昵称')->unique();
             $table->string('email', 100)->comment('邮箱（可用于登录）')->unique();
             $table->string('ua')->comment('userAgent');
