@@ -1,12 +1,11 @@
 <?php
 
 
-namespace SoleX\App\Providers;
+namespace SoleX\Blog\App\Providers;
 
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use SoleX\App\Contracts\Services\RegisterCategoryRouterService;
+use SoleX\Blog\App\Contracts\Services\RegisterCategoryRouterService;
 
 class CategoryRouterServiceProvider extends ServiceProvider
 {

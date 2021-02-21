@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\App\Contracts\Services;
+namespace SoleX\Blog\App\Contracts\Services;
 
 
 interface RegisterPageRouterService

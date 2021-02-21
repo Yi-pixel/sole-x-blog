@@ -1,10 +1,8 @@
 <?php
 
 
-namespace SoleX\Blog\App\Contracts\Repositories\Post;
+namespace SoleX\Blog\App\Contracts\Repositories;
 
-
-use SoleX\Blog\App\Contracts\Repositories\BaseRepository;
 
 interface Post extends BaseRepository
 {

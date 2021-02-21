@@ -1,11 +1,10 @@
 <?php
 
 
-namespace SoleX\App\Providers;
+namespace SoleX\Blog\App\Providers;
 
 
-use Illuminate\Support\Facades\Route;
-use SoleX\App\Contracts\Services\RegisterPageRouterService;
+use SoleX\Blog\App\Contracts\Services\RegisterPageRouterService;
 
 class PageRouterServiceProvider
 {

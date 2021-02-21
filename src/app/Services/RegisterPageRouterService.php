@@ -1,10 +1,10 @@
 <?php
 
 
-namespace SoleX\App\Services;
+namespace SoleX\Blog\App\Services;
 
 
-class RegisterPageRouterService implements \SoleX\App\Contracts\Services\RegisterPageRouterService
+class RegisterPageRouterService implements \SoleX\Blog\App\Contracts\Services\RegisterPageRouterService
 {
 
     public function register()

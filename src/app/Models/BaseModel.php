@@ -5,7 +5,7 @@ namespace SoleX\Blog\App\Models;
 
 
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Models;
+use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class BaseModel
