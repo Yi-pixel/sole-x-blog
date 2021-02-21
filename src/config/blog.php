@@ -2,8 +2,10 @@
 
 use SoleX\Blog\App\Contracts\Repositories\Page;
 use SoleX\Blog\App\Contracts\Repositories\Post;
+use SoleX\Blog\App\Contracts\Repositories\Setting;
 use SoleX\Blog\App\Repositories\PageRepository;
 use SoleX\Blog\App\Repositories\PostRepository;
+use SoleX\Blog\App\Repositories\SettingRepository;
 use SoleX\Blog\App\Services\PageService;
 
 return [
@@ -12,6 +14,7 @@ return [
     'bind_singleton' => [
         Post::class                                           => PostRepository::class,
         \SoleX\Blog\App\Contracts\Services\PageService::class => PageService::class,
-        Page::class    => PageRepository::class,
+        Page::class                                           => PageRepository::class,
+        Setting::class => SettingRepository::class,
     ],
 ];
