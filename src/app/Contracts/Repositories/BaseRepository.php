@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repository;
+namespace SoleX\Blog\App\Contracts\Repositories;
 
 
 interface BaseRepository

@@ -1,11 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repository\Post;
+namespace SoleX\Blog\App\Repositories;
 
 
-use SoleX\Blog\App\Model\PostModel;
-use SoleX\Blog\App\Repository\BaseRepositoryImpl;
+use SoleX\Blog\App\Contracts\Repositories\Post\Post;
+use SoleX\Blog\App\Models\PostModel;
+use SoleX\Blog\App\Repositories\BaseRepositoryImpl;
 
 class PostRepository extends BaseRepositoryImpl implements Post
 {

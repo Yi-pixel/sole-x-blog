@@ -6,8 +6,8 @@ namespace SoleX\Blog;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use SoleX\Blog\App\Repository\Post\Post;
-use SoleX\Blog\App\Repository\Post\PostRepository;
+use SoleX\Blog\App\Contracts\Repositories\Post\Post;
+use SoleX\Blog\App\Repositories\PostRepository;
 
 class BlogServiceProvider extends ServiceProvider
 {

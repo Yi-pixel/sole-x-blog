@@ -1,12 +1,13 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repository;
+namespace SoleX\Blog\App\Repositories;
 
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use InvalidArgumentException;
-use SoleX\Blog\App\Model\BaseModel;
+use SoleX\Blog\App\Contracts\Repositories\BaseRepository;
+use SoleX\Blog\App\Models\BaseModel;
 
 abstract class BaseRepositoryImpl implements BaseRepository
 {

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Model;
+namespace SoleX\Blog\App\Models;
 
 
 class PostModel extends BaseModel
