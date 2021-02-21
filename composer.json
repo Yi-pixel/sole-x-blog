@@ -20,7 +20,9 @@
     "extra": {
         "laravel": {
             "providers": [
-                "SoleX\\Blog\\BlogServiceProvider"
+                "\\SoleX\\Blog\\BlogServiceProvider",
+                "\\SoleX\\Blog\\App\\Providers\\CategoryRouterServiceProvider",
+                "\\SoleX\\Blog\\App\\Providers\\PageRouterServiceProvider"
             ],
             "aliases": {
             }
