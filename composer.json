@@ -21,6 +21,7 @@
         "laravel": {
             "providers": [
                 "\\SoleX\\Blog\\BlogServiceProvider",
+                "\\SoleX\\Blog\\App\\Providers\\AuthServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\CategoryRouterServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\PageRouterServiceProvider"
             ],
