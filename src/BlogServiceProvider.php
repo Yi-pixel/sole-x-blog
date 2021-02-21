@@ -6,8 +6,6 @@ namespace SoleX\Blog;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use SoleX\Blog\App\Contracts\Repositories\Post;
-use SoleX\Blog\App\Repositories\PostRepository;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -17,7 +15,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->registerLoader();
         $this->mergeConfigFrom(__DIR__ . '/config/blog.php', 'blog');
-        $this->registerRepository();
+        $this->registerConfigBinds();
     }
 
     private function registerLoader(): void
@@ -55,13 +53,16 @@ class BlogServiceProvider extends ServiceProvider
         });
     }
 
-    private function registerRepository(): void
+    private function registerConfigBinds(): void
     {
-        $binds = [
-            Post::class => PostRepository::class,
-        ];
-        foreach ($binds as $key => $def) {
-            $this->app->bind($key, $def);
+        $bindClass = config('blog.bind_class') ?: [];
+        foreach ($bindClass as $abstract => $class) {
+            $this->app->bind($abstract, $class);
+        }
+
+        $bindSingleton = config('blog.bind_singleton') ?: [];
+        foreach ($bindSingleton as $abstract => $singleton) {
+            $this->app->singleton($abstract, $singleton);
         }
     }
 
