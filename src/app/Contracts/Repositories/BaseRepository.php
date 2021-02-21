@@ -4,11 +4,9 @@
 namespace SoleX\Blog\App\Contracts\Repositories;
 
 
+use Illuminate\Database\Eloquent\Model;
+
 interface BaseRepository
 {
-    public function find(int $id, array $fields = ['*']);
-
-    public function all(array $fields = ['*']);
-
-    public function paginate(...$paginate);
+    public function model(): Model;
 }

@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Repositories;
 
 
-use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
 use SoleX\Blog\App\Contracts\Repositories\BaseRepository;
 use SoleX\Blog\App\Models\BaseModel;
@@ -13,31 +13,14 @@ abstract class BaseRepositoryImpl implements BaseRepository
 {
     protected string $model;
 
-    public function find(int $id, array $fields = ['*'])
-    {
-        return $this->model()->findOrFail($id, $fields);
-    }
-
-    public function model(): BaseModel
+    /**
+     * @return Model|BaseModel
+     */
+    public function model(): Model
     {
         $this->model || throw new InvalidArgumentException(__('sole-x-blog::tips.repository.model-not-found'));
-        assert(is_subclass_of($this->model, BaseModel::class));
+        assert(is_subclass_of($this->model, Model::class));
         return app($this->model);
-    }
-
-    public function all(array $fields = ['*'])
-    {
-        return $this->model()->get($fields);
-    }
-
-    public function paginate(...$page): LengthAwarePaginator
-    {
-        return $this->model()->paginate(...$page);
-    }
-
-    public function cache()
-    {
-        return app('cache');
     }
 
 }
