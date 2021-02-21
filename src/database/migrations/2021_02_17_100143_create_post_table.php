@@ -11,12 +11,14 @@ class CreatePostTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title')->comment('文章标题')->index();
             $table->timestamps();
             $table->softDeletes();
-            $table->unsignedInteger('author_id')->comment('作者ID')->index();
-            $table->mediumText('content')->comment('评论内容');
+            $table->string('title')->comment('文章标题')->index();
+            $table->unsignedInteger('user_id')->comment('作者ID')->index();
             $table->unsignedInteger('category_id')->comment('分类ID')->index();
+            $table->timestamp('hidden_at')->nullable()->comment('隐藏时间');
+            $table->timestamp('review_at')->nullable()->comment('审核时间');
+            $table->mediumText('content')->comment('文章内容');
             $table->unsignedInteger('views')->comment('浏览量');
         });
     }
