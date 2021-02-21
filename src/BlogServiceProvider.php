@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class BlogServiceProvider extends ServiceProvider
 {
-    public const NAMESPACE = 'sole-x-blog';
+    public const NAMESPACE = 'blog';
 
     public function register()
     {
