@@ -27,6 +27,7 @@ class CreateUserTable extends Migration
             $table->string('job_title')->comment('职称');
             $table->char('phone', 11)->comment('手机号（可用于登录）')->unique();
             $table->text('intro')->comment('个人介绍');
+            $table->unsignedTinyInteger('level')->default(0)->comment('用户等级，限定规则 0 表示允许评论，但是必须审核');
         });
     }
 
