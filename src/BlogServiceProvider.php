@@ -6,7 +6,7 @@ namespace SoleX\Blog;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use SoleX\Auth\Models\User;
+use SoleX\Auth\UserProvider;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -58,7 +58,9 @@ class BlogServiceProvider extends ServiceProvider
 
     private function registerUserWrapper()
     {
-        $this->app->bind(User::class, App\Models\User::class);
+        foreach (UserProvider::USER_MODELS as $userModel) {
+            $this->app->bind($userModel, App\Models\User::class);
+        }
     }
 
     private function registerConfigBinds(): void
