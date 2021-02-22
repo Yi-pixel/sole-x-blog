@@ -5,7 +5,7 @@ namespace SoleX\Blog\App\Repositories;
 
 
 use SoleX\Blog\App\Contracts\Repositories\Post;
-use SoleX\Blog\App\Models\PostModel;
+use SoleX\Blog\App\Models\Post as PostModel;
 
 class PostRepository extends BaseRepositoryImpl implements Post
 {

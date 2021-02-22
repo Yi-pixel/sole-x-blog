@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Models;
 
 
-class CommentModel extends BaseModel
+class Comment extends BaseModel
 {
     protected $table = 'comment';
 }

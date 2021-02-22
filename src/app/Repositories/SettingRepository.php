@@ -6,7 +6,7 @@ namespace SoleX\Blog\App\Repositories;
 
 use Illuminate\Support\Collection;
 use SoleX\Blog\App\Contracts\Repositories\Setting;
-use SoleX\Blog\App\Models\SettingModel;
+use SoleX\Blog\App\Models\Setting as SettingModel;
 use SoleX\Blog\App\Observers\SettingRefreshObserver;
 
 class SettingRepository extends BaseRepositoryImpl implements Setting

@@ -6,7 +6,7 @@ namespace SoleX\Blog\App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class SettingModel extends BaseModel
+class Setting extends BaseModel
 {
     protected $table = 'setting';
     protected $fillable = ['name', 'value', 'comment', 'is_available'];

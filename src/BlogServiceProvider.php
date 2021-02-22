@@ -6,7 +6,7 @@ namespace SoleX\Blog;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use SoleX\Auth\UserModel;
+use SoleX\Auth\Models\User;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -58,7 +58,7 @@ class BlogServiceProvider extends ServiceProvider
 
     private function registerUserWrapper()
     {
-        $this->app->bind(UserModel::class, App\Models\UserModel::class);
+        $this->app->bind(User::class, App\Models\User::class);
     }
 
     private function registerConfigBinds(): void
@@ -77,8 +77,8 @@ class BlogServiceProvider extends ServiceProvider
     public function boot()
     {
         $namespace = self::NAMESPACE;
-        $this->registerMigration();
 
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/storage/lang/', $namespace);
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views/', $namespace);
@@ -93,13 +93,6 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/blog.php' => config_path('blog.php'),
         ], 'config');
-    }
-
-    private function registerMigration()
-    {
-        foreach (glob(__DIR__ . '/database/migrations/*.php') as $path) {
-            $this->loadMigrationsFrom($path);
-        }
     }
 
     private function registerCommands(): array

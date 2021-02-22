@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Models;
 
 
-class AdminUserModel extends BaseModel
+class AdminUser extends BaseModel
 {
     protected $table = 'admin_user';
 }

@@ -20,7 +20,7 @@ class CreateLinkTable extends Migration
             $table->string('url')->comment('主页地址');
             $table->string('title')->comment('标题');
             $table->string('intro')->comment('介绍文案');
-            $table->unsignedFloat('sort')->comment('排序');
+            $table->unsignedFloat('sort')->comment('排序')->default(0);
             $table->unsignedTinyInteger('level')->comment('等级')->default(0)->index();
         });
     }

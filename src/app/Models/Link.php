@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Models;
 
 
-class LinkModel extends BaseModel
+class Link extends BaseModel
 {
     protected $table = 'link';
 

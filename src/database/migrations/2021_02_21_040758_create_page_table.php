@@ -17,10 +17,10 @@ class CreatePageTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
-            $table->string('url')->index()->comment('页面地址');
+            $table->string('url')->index()->comment('页面地址')->default('');
             $table->text('keywords')->comment('SEO 关键字');
             $table->text('description')->comment('SEO 描述');
-            $table->string('title')->index()->comment('标题');
+            $table->string('title')->index()->comment('标题')->default('');
             $table->mediumText('body')->comment('页面源码');
             $table->unsignedTinyInteger('is_public')->comment('是否公开')->default(0);
         });

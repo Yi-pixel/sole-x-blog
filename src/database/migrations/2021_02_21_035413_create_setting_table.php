@@ -18,8 +18,8 @@ class CreateSettingTable extends Migration
             $table->timestamps();
             $table->string('name', 30)->index()->comment('设置名称');
             $table->mediumText('value')->comment('配置内容');
-            $table->string('comment')->comment('注释说明');
-            $table->unsignedTinyInteger('is_available')->comment('是否可用')->index();
+            $table->string('comment')->comment('注释说明')->nullable();
+            $table->unsignedTinyInteger('is_available')->comment('是否可用')->index()->default(0);
         });
     }
 

@@ -9,7 +9,7 @@ class CreatePostTable extends Migration
 {
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('post', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->softDeletes();
@@ -19,8 +19,8 @@ class CreatePostTable extends Migration
             $table->timestamp('hidden_at')->nullable()->comment('隐藏时间');
             $table->timestamp('review_at')->nullable()->comment('审核时间');
             $table->mediumText('content')->comment('文章内容');
-            $table->unsignedInteger('views')->comment('浏览量');
-            $table->unsignedTinyInteger('status')->comment('状态: 0(草稿),1(已发布)')->index();
+            $table->unsignedInteger('views')->comment('浏览量')->default(0);
+            $table->unsignedTinyInteger('status')->comment('状态: 0(草稿),1(已发布)')->index()->default(0);
         });
     }
 

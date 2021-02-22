@@ -27,7 +27,7 @@ class CreateFilesTable extends Migration
             $table->unsignedBigInteger('attachable_id')->index()->comment('关联的 ID');
             $table->char('hash', 40)->comment('文件的 SHA-1 hash 值')->index();
             $table->unsignedBigInteger('user_id')->comment('上传者')->index();
-            $table->string('unsafe_cause')->comment('不安全的原因');
+            $table->string('unsafe_cause')->comment('不安全的原因')->nullable();
             $table->unsignedTinyInteger('is_safe')->comment('是否安全(不安全的内容不会被显示)')->default(0)->index();
             $table->unsignedTinyInteger('is_public')->comment('是否公开')->default(1)->index();
             $table->unsignedTinyInteger('is_enable')->comment('是否允许查看')->default(1)->index();

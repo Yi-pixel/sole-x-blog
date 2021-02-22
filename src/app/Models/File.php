@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Models;
 
 
-class FilesModel extends BaseModel
+class File extends BaseModel
 {
     protected $table = 'files';
 }

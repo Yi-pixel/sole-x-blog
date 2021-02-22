@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Models;
 
 
-class CategoryModel extends BaseModel
+class Category extends BaseModel
 {
     protected $table = 'category';
 

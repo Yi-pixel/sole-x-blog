@@ -6,7 +6,7 @@ namespace SoleX\Blog\App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class PageModel extends BaseModel
+class Page extends BaseModel
 {
     protected $table = 'page';
 

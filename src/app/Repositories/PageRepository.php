@@ -7,7 +7,7 @@ namespace SoleX\Blog\App\Repositories;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use SoleX\Blog\App\Contracts\Repositories\Page;
-use SoleX\Blog\App\Models\PageModel;
+use SoleX\Blog\App\Models\Page as PageModel;
 
 class PageRepository extends BaseRepositoryImpl implements Page
 {
@@ -22,7 +22,7 @@ class PageRepository extends BaseRepositoryImpl implements Page
             ->get();
     }
 
-    public function findByUrl(string $url): PageModel
+    public function findByUrl(string $url): Page
     {
         return $this->model()->whereUrl($url)->isPublic()->firstOrFail();
     }

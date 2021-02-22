@@ -21,14 +21,14 @@ class CreateCategoryTable extends Migration
             $table->text('intro')->comment('介绍');
             $table->text('keywords')->comment('SEO 关键字');
             $table->text('description')->comment('SEO 描述');
-            $table->unsignedFloat('sort')->comment('排序');
-            $table->string('url')->index()->comment('页面地址（可能是有利于 SEO 友好的）');
-            $table->unsignedBigInteger('parent_id')->index()->comment('父级分类 ID');
+            $table->unsignedFloat('sort')->comment('排序')->default(0);
+            $table->string('url')->index()->comment('页面地址（可能是有利于 SEO 友好的）')->default('');
+            $table->unsignedBigInteger('parent_id')->index()->comment('父级分类 ID')->default(0);
             $table->unsignedBigInteger('nested_left')->index()->comment('分类的左极限');
             $table->unsignedBigInteger('nested_right')->index()->comment('分类的右极限');
-            $table->unsignedSmallInteger('layer')->comment('当前层级')->index();
-            $table->unsignedTinyInteger('is_enable')->comment('是否启用（链接进入将转到 404）')->index();
-            $table->unsignedTinyInteger('is_show')->comment('是否显示（仅控制是否显示）')->index();
+            $table->unsignedSmallInteger('layer')->comment('当前层级')->index()->default(0);
+            $table->unsignedTinyInteger('is_enable')->comment('是否启用（链接进入将转到 404）')->index()->default(0);
+            $table->unsignedTinyInteger('is_show')->comment('是否显示（仅控制是否显示）')->index()->default(0);
         });
     }
 

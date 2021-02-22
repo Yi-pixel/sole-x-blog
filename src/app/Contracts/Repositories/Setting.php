@@ -5,7 +5,7 @@ namespace SoleX\Blog\App\Contracts\Repositories;
 
 
 use Illuminate\Support\Collection;
-use SoleX\Blog\App\Models\SettingModel;
+use SoleX\Blog\App\Models\Setting as SettingModel;
 
 interface Setting extends BaseRepository
 {
