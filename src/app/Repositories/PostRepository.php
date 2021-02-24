@@ -7,7 +7,7 @@ namespace SoleX\Blog\App\Repositories;
 use SoleX\Blog\App\Contracts\Repositories\Post;
 use SoleX\Blog\App\Models\Post as PostModel;
 
-class PostRepository extends BaseRepositoryImpl implements Post
+class PostRepository extends BaseRepository implements Post
 {
     protected string $model = PostModel::class;
 

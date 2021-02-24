@@ -12,7 +12,7 @@ use SoleX\Blog\App\Models\Setting as SettingModel;
 use SoleX\Blog\App\Observers\SettingRefreshObserver;
 use SoleX\Blog\App\Utils\TypeConverter;
 
-class SettingRepository extends BaseRepositoryImpl implements Setting
+class SettingRepository extends BaseRepository implements Setting
 {
     protected static Collection $settings;
     protected string $model = SettingModel::class;

@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Collection;
 use SoleX\Blog\App\Contracts\Repositories\Page;
 use SoleX\Blog\App\Models\Page as PageModel;
 
-class PageRepository extends BaseRepositoryImpl implements Page
+class PageRepository extends BaseRepository implements Page
 {
     protected string $model = PageModel::class;
 

@@ -5,12 +5,12 @@ namespace SoleX\Blog\App\Traits\Repositories;
 
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use SoleX\Blog\App\Repositories\BaseRepositoryImpl;
+use SoleX\Blog\App\Repositories\BaseRepository;
 
 /**
  * Trait RepositoryPaginateTrait
  *
- * @mixin BaseRepositoryImpl
+ * @mixin BaseRepository
  * @package SoleX\Blog\App\Traits\Repositories
  */
 trait RepositoryPaginateTrait

@@ -6,10 +6,10 @@ namespace SoleX\Blog\App\Repositories;
 
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
-use SoleX\Blog\App\Contracts\Repositories\BaseRepository;
+use SoleX\Blog\App\Contracts\Repositories\BaseRepository as BaseRepositoryContracte;
 use SoleX\Blog\App\Models\BaseModel;
 
-abstract class BaseRepositoryImpl implements BaseRepository
+abstract class BaseRepository implements BaseRepositoryContracte
 {
     protected string $model;
 

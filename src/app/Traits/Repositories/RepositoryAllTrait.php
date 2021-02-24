@@ -5,12 +5,12 @@ namespace SoleX\Blog\App\Traits\Repositories;
 
 
 use Illuminate\Database\Eloquent\Collection;
-use SoleX\Blog\App\Repositories\BaseRepositoryImpl;
+use SoleX\Blog\App\Repositories\BaseRepository;
 
 /**
  * Trait RepositoryAllTrait
  *
- * @mixin BaseRepositoryImpl
+ * @mixin BaseRepository
  * @package SoleX\Blog\App\Traits\Repositories
  */
 trait RepositoryAllTrait
