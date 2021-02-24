@@ -15,7 +15,7 @@ interface Setting extends BaseRepository
 
     public function all(): Collection;
 
-    public function fetch(string $name, $default = null): ?string;
+    public function fetch(string $name, $default = null);
 
     public function refresh(): Setting;
 

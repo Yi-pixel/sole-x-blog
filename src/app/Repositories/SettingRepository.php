@@ -6,11 +6,11 @@ namespace SoleX\Blog\App\Repositories;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-use JetBrains\PhpStorm\Pure;
 use JsonException;
 use SoleX\Blog\App\Contracts\Repositories\Setting;
 use SoleX\Blog\App\Models\Setting as SettingModel;
 use SoleX\Blog\App\Observers\SettingRefreshObserver;
+use SoleX\Blog\App\Utils\TypeConverter;
 
 class SettingRepository extends BaseRepositoryImpl implements Setting
 {
@@ -35,25 +35,11 @@ class SettingRepository extends BaseRepositoryImpl implements Setting
         return $this->model()->latest('id')->available()->get(['name', 'value', 'comment'])->toBase();
     }
 
-    public function fetch($name, $default = null): ?string
+    public function fetch($name, $default = null): TypeConverter
     {
-        return $this->typeof($this->all()->get($name, $default));
+        return new TypeConverter($this->all()->get($name, $default));
     }
 
-    #[Pure] public function typeof(?string $value): null|string|bool
-    {
-        if (is_null($value) || empty($value)) {
-            return $value;
-        }
-        $oldValue = $value;
-        $value = strtolower($value);
-        return match ($value) {
-            'true', '(true)' => true,
-            'false', '(false)' => false,
-            'null', '(null)' => null,
-            default => $oldValue,
-        };
-    }
 
     public function all(): Collection
     {
@@ -85,9 +71,10 @@ class SettingRepository extends BaseRepositoryImpl implements Setting
         $config = $this->fetch($key);
         try {
             $configArr = json_decode($config, true, 512, JSON_THROW_ON_ERROR);
-            return value(Arr::get($configArr, $jsonKey, $default));
+            $result = value(Arr::get($configArr, $jsonKey, $default));
         } catch (JsonException) {
-            return null;
+            $result = null;
         }
+        return new TypeConverter($result);
     }
 }
