@@ -17,7 +17,9 @@ interface Setting extends BaseRepository
 
     public function fetch(string $name, $default = null): ?string;
 
-    public function refresh(): static;
+    public function refresh(): Setting;
 
     public function put(string $name, string $value, string $comment = null): bool;
+
+    public function json(string $key, null|string $jsonKey = null, $default = null);
 }

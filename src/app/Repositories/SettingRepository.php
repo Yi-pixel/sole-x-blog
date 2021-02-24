@@ -4,8 +4,10 @@
 namespace SoleX\Blog\App\Repositories;
 
 
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\Pure;
+use JsonException;
 use SoleX\Blog\App\Contracts\Repositories\Setting;
 use SoleX\Blog\App\Models\Setting as SettingModel;
 use SoleX\Blog\App\Observers\SettingRefreshObserver;
@@ -76,5 +78,16 @@ class SettingRepository extends BaseRepositoryImpl implements Setting
         ]);
         $this->refresh();
         return true;
+    }
+
+    public function json(string $key, string|null $jsonKey = null, $default = null)
+    {
+        $config = $this->fetch($key);
+        try {
+            $configArr = json_decode($config, true, 512, JSON_THROW_ON_ERROR);
+            return value(Arr::get($configArr, $jsonKey, $default));
+        } catch (JsonException) {
+            return null;
+        }
     }
 }
