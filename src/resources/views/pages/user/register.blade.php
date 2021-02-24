@@ -7,6 +7,24 @@
                     <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">注册</h1>
                     <p class="text-gray-500 dark:text-gray-400">注册一个账号以继续访问</p>
                 </div>
+                @if($errors->any())
+                    <div class="bg-red-100 p-5 w-full">
+                        <div class="flex space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                 class="flex-none fill-current text-red-500 h-4 w-4">
+                                <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm4.597 17.954l-4.591-4.55-4.555 4.596-1.405-1.405 4.547-4.592-4.593-4.552 1.405-1.405 4.588 4.543 4.545-4.589 1.416 1.403-4.546 4.587 4.592 4.548-1.403 1.416z"/>
+                            </svg>
+                            <div class="leading-tight flex flex-col space-y-2">
+                                <div class="text-sm font-medium text-red-700">你必须解决以下错误:</div>
+                                @foreach($errors->all() as $error)
+                                    <div class="flex-1 leading-snug text-sm text-red-600">
+                                        {{ $error }}
+                                    </div>
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                @endif
                 @if($setting->fetch('allow_register', false)->isTrue())
                     <div class="m-7">
                         <form action="" method="post">
@@ -28,7 +46,8 @@
                                 <div class="flex justify-between mb-2">
                                     <label for="password" class="text-sm text-gray-600 dark:text-gray-400">确认密码</label>
                                 </div>
-                                <input type="password" name="password" id="password" required placeholder="请重新输入密码"
+                                <input type="password" name="password_confirmation" id="password_confirmation" required
+                                       placeholder="请重新输入密码"
                                        class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
                             </div>
                             <div class="mb-6">
