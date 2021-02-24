@@ -5,6 +5,7 @@ namespace SoleX\Blog\App\Repositories;
 
 
 use Illuminate\Support\Collection;
+use JetBrains\PhpStorm\Pure;
 use SoleX\Blog\App\Contracts\Repositories\Setting;
 use SoleX\Blog\App\Models\Setting as SettingModel;
 use SoleX\Blog\App\Observers\SettingRefreshObserver;
@@ -34,7 +35,22 @@ class SettingRepository extends BaseRepositoryImpl implements Setting
 
     public function fetch($name, $default = null): ?string
     {
-        return $this->all()->get($name, $default);
+        return $this->typeof($this->all()->get($name, $default));
+    }
+
+    #[Pure] public function typeof(?string $value): null|string|bool
+    {
+        if (is_null($value) || empty($value)) {
+            return $value;
+        }
+        $oldValue = $value;
+        $value = strtolower($value);
+        return match ($value) {
+            'true', '(true)' => true,
+            'false', '(false)' => false,
+            'null', '(null)' => null,
+            default => $oldValue,
+        };
     }
 
     public function all(): Collection

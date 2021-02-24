@@ -22,7 +22,7 @@ class PageRepository extends BaseRepositoryImpl implements Page
             ->get();
     }
 
-    public function findByUrl(string $url): Page
+    public function findByUrl(string $url): PageModel
     {
         return $this->model()->whereUrl($url)->isPublic()->firstOrFail();
     }
