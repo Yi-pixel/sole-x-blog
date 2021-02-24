@@ -4,10 +4,16 @@
 namespace SoleX\Blog;
 
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use PhpParser\Node\Stmt\Interface_;
+use PhpParser\Node\Stmt\Namespace_;
+use PhpParser\NodeFinder;
+use PhpParser\ParserFactory;
 use SoleX\Auth\UserProvider;
 use SoleX\Blog\App\Models\User;
+use Symfony\Component\Finder\Finder;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -79,10 +85,12 @@ class BlogServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        App::setLocale('zh_CN');
         $namespace = self::NAMESPACE;
+        $this->registerServiceLoader();
 
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-        $this->loadTranslationsFrom(__DIR__ . '/storage/lang/', $namespace);
+        $this->loadTranslationsFrom(__DIR__ . '/resources/lang/', $namespace);
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
         $this->loadViewsFrom(__DIR__ . '/resources/views/', $namespace);
 
@@ -96,6 +104,35 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/blog.php' => config_path('blog.php'),
         ], 'config');
+    }
+
+    private function registerServiceLoader()
+    {
+        $finder = new Finder();
+        $contractDir = __DIR__ . '/app/Contracts';
+        foreach ($finder->files()->in($contractDir) as $fileInfo) {
+            $path = $fileInfo->getRealPath();
+            $parser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
+            $stmts = $parser->parse(file_get_contents($path));
+            $nodeFinder = new NodeFinder();
+            $namespace = $nodeFinder->findFirstInstanceOf($stmts, Namespace_::class);
+            if (!$namespace instanceof Namespace_) {
+                continue;
+            }
+            $interface = $nodeFinder->findFirstInstanceOf($namespace, Interface_::class);
+            if (!$interface instanceof Interface_) {
+                continue;
+            }
+            $contract = $namespace->name->parts;
+            $contract[] = $interface->name->name;
+            $class = $contract;
+            array_splice($class, 3, 1);
+            $contract = implode('\\', $contract);
+            $class = implode('\\', $class);
+            if (class_exists($class)) {
+                $this->app->bindIf($contract, $class);
+            }
+        }
     }
 
     private function registerCommands(): array
