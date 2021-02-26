@@ -6,9 +6,9 @@ namespace SoleX\Blog\App\Services\User;
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Hashing\Hasher;
-use SoleX\Auth\Models\User;
-use SoleX\Blog\App\Contracts\Repositories\UserRepository;
+use Illuminate\Support\Str;
 use SoleX\Blog\App\Contracts\Services\User\RegisterService as IRegisterService;
+use SoleX\Blog\App\Repositories\UserRepository;
 
 class RegisterService implements IRegisterService
 {
@@ -23,8 +23,8 @@ class RegisterService implements IRegisterService
     {
         $user = $this->userRepository->register([
             'name'     => $this->email,
-            'email'    => $this->password,
-            'nickname' => substr($this->email, 0, 5),
+            'email'    => $this->email,
+            'nickname' => Str::random(9),
             'password' => $this->hasher->make($this->password),
         ]);
         return $user;

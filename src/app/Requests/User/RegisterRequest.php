@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Requests;
+namespace SoleX\Blog\App\Requests\User;
 
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRegisterRequest extends FormRequest
+class RegisterRequest extends FormRequest
 {
     public function rules()
     {

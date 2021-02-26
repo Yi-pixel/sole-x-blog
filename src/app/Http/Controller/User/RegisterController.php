@@ -1,15 +1,16 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller;
+namespace SoleX\Blog\App\Http\Controller\User;
 
 
 use Illuminate\Support\Facades\Auth;
 use SoleX\Blog\App\Contracts\Services\User\RegisterService;
-use SoleX\Blog\App\Requests\UserRegisterRequest;
+use SoleX\Blog\App\Http\Controller\BaseController;
+use SoleX\Blog\App\Requests\User\RegisterRequest;
 use SoleX\Blog\App\Traits\ViewTrait;
 
-class UserRegisterController extends BaseController
+class RegisterController extends BaseController
 {
     use ViewTrait;
 
@@ -18,7 +19,7 @@ class UserRegisterController extends BaseController
         return $this->pages('user.register');
     }
 
-    public function register(UserRegisterRequest $request, RegisterService $service)
+    public function register(RegisterRequest $request, RegisterService $service)
     {
         ['email' => $email, 'password' => $password] = $request->all();
         $service->email = $email;

@@ -8,9 +8,12 @@
                     <p class="text-gray-500 dark:text-gray-400">注册一个账号以继续访问</p>
                 </div>
                 <div class="m-7">
-                    <form action="">
+                    <form action="" method="post">
+                        {{ csrf_field() }}
                         <div class="mb-6">
-                            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">邮箱</label>
+                            <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">邮箱:
+                                <span class="text-red-600">@error('email') {{ $errors->first('email') }} @enderror</span>
+                            </label>
                             <input type="email" name="email" id="email" placeholder="abc@company.com"
                                    class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
                         </div>
@@ -18,21 +21,20 @@
                             <div class="flex justify-between mb-2">
                                 <label for="password" class="text-sm text-gray-600 dark:text-gray-400">密码</label>
                                 <a href="#!"
-                                   class="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300">Forgot
-                                    password?</a>
+                                   class="text-sm text-gray-400 focus:outline-none focus:text-indigo-500 hover:text-indigo-500 dark:hover:text-indigo-300">忘记密码？</a>
                             </div>
-                            <input type="password" name="password" id="password" placeholder="Your Password"
+                            <input type="password" name="password" id="password" placeholder="密码"
                                    class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
                         </div>
                         <div class="mb-6">
-                            <button type="button"
+                            <button type="submit"
                                     class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-                                Sign in
+                                登录
                             </button>
                         </div>
-                        <p class="text-sm text-center text-gray-400">Don&#x27;t have an account yet? <a href="#!"
-                                                                                                        class="text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">Sign
-                                up</a>.</p>
+                        <p class="text-sm text-center text-gray-400">你还没有账号？赶紧 <a href="#!"
+                                                                                  class="text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">注册</a>一个吧。
+                        </p>
                     </form>
                 </div>
             </div>
