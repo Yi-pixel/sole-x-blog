@@ -5,19 +5,21 @@ namespace SoleX\Blog;
 
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
-use PhpParser\Node\Stmt\Interface_;
-use PhpParser\Node\Stmt\Namespace_;
-use PhpParser\NodeFinder;
-use PhpParser\ParserFactory;
 use SoleX\Auth\UserProvider;
+use SoleX\Blog\App\Enums\CacheTags;
 use SoleX\Blog\App\Models\User;
+use SoleX\Blog\App\Providers\LivewireServiceProvider;
+use SoleX\Blog\App\Utils\CacheInProductMixin;
+use SoleX\Blog\App\Utils\ParseFileClass;
 use Symfony\Component\Finder\Finder;
 
 class BlogServiceProvider extends ServiceProvider
 {
     public const NAMESPACE = 'blog';
+
 
     public function register()
     {
@@ -88,6 +90,8 @@ class BlogServiceProvider extends ServiceProvider
         App::setLocale('zh_CN');
         $namespace = self::NAMESPACE;
         $this->registerServiceLoader();
+        $this->listenCacheClear();
+        $this->app->register(LivewireServiceProvider::class);
 
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/', $namespace);
@@ -106,25 +110,10 @@ class BlogServiceProvider extends ServiceProvider
         ], 'config');
     }
 
-    private function registerServiceLoader()
+    private function registerServiceLoader(): void
     {
-        $finder = new Finder();
-        $contractDir = __DIR__ . '/app/Contracts';
-        foreach ($finder->files()->in($contractDir) as $fileInfo) {
-            $path = $fileInfo->getRealPath();
-            $parser = (new ParserFactory())->create(ParserFactory::PREFER_PHP7);
-            $stmts = $parser->parse(file_get_contents($path));
-            $nodeFinder = new NodeFinder();
-            $namespace = $nodeFinder->findFirstInstanceOf($stmts, Namespace_::class);
-            if (!$namespace instanceof Namespace_) {
-                continue;
-            }
-            $interface = $nodeFinder->findFirstInstanceOf($namespace, Interface_::class);
-            if (!$interface instanceof Interface_) {
-                continue;
-            }
-            $contract = $namespace->name->parts;
-            $contract[] = $interface->name->name;
+        foreach ($this->getContractList() as $contract) {
+            $contract = explode('\\', $contract);
             $class = $contract;
             array_splice($class, 3, 1);
             $contract = implode('\\', $contract);
@@ -133,6 +122,30 @@ class BlogServiceProvider extends ServiceProvider
                 $this->app->bindIf($contract, $class);
             }
         }
+    }
+
+    private function getContractList(): array
+    {
+        $cache = Cache::tags(CacheTags::BLOG_SERVICE_CONFIG);
+        $cacheKey = 'contracts';
+        $isProduction = $this->app->environment('production');
+        if ($isProduction && $result = $cache->has($cacheKey)) {
+            return $cache->get($cacheKey);
+        }
+        $finder = new Finder();
+        $contractDir = __DIR__ . '/app/Contracts';
+        $result = [];
+        foreach ($finder->files()->in($contractDir) as $fileInfo) {
+            $path = $fileInfo->getRealPath();
+            $parseFileClass = new ParseFileClass($path);
+            $result[] = $parseFileClass->getFullClass();
+        }
+        $isProduction && $cache->forever($cacheKey, $result);
+        return $result;
+    }
+
+    private function listenCacheClear()
+    {
     }
 
     private function registerCommands(): array
