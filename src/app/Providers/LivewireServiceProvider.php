@@ -22,8 +22,11 @@ class LivewireServiceProvider extends ServiceProvider
             if (!class_exists($class)) {
                 continue;
             }
-            $filename = pathinfo($class, PATHINFO_FILENAME);
-            Livewire::component($this->prefix . Str::snake($filename), $class);
+            $subClass = str_replace('SoleX\\Blog\\App\\Livewire\\', '', $class);
+            $name = collect(explode('\\', $subClass))
+                ->map(fn($item) => Str::snake($item))
+                ->implode('.');
+            Livewire::component($this->prefix . $name, $class);
         }
     }
 
