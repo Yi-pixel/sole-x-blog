@@ -5,7 +5,6 @@ namespace SoleX\Blog\App\Services\User;
 
 
 use Illuminate\Auth\AuthenticationException;
-use Illuminate\Contracts\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -30,7 +29,7 @@ class LoginService implements ILoginService
         $user = $this->userRepository->findByEmail($attribute['email']);
         $blackList = $user->blackList;
         assert($blackList instanceof Collection);
-        throw_if($blackList->isNotEmpty(), new BusinessException($this->__('tips.auth.is-blacked')));
+        $blackList->isNotEmpty() && throw new BusinessException($this->__('tips.auth.is-blacked'));
         Auth::login($user);
         return $user;
     }
