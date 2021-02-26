@@ -27,10 +27,16 @@ class LoginService implements ILoginService
             throw new AuthenticationException();
         }
         $user = $this->userRepository->findByEmail($attribute['email']);
+
+        /**
+         * 黑名单的用户将禁止登陆
+         */
         $blackList = $user->blackList;
         assert($blackList instanceof Collection);
         $blackList->isNotEmpty() && throw new BusinessException($this->__('tips.auth.is-blacked'));
+
         Auth::login($user);
+
         return $user;
     }
 }
