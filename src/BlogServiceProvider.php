@@ -10,6 +10,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use SoleX\Auth\UserProvider;
 use SoleX\Blog\App\Enums\CacheTags;
+use SoleX\Blog\App\Http\Middleware\AdminUserMiddleware;
 use SoleX\Blog\App\Models\User;
 use SoleX\Blog\App\Providers\LivewireServiceProvider;
 use SoleX\Blog\App\Utils\CacheInProductMixin;
@@ -92,7 +93,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerServiceLoader();
         $this->listenCacheClear();
         $this->app->register(LivewireServiceProvider::class);
-
+        $this->registerMiddlewareAlias();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/', $namespace);
         $this->loadRoutesFrom(__DIR__ . '/routes.php');
@@ -146,6 +147,11 @@ class BlogServiceProvider extends ServiceProvider
 
     private function listenCacheClear()
     {
+    }
+
+    private function registerMiddlewareAlias()
+    {
+        $this->app['router']->aliasMiddleware('blog_admin', AdminUserMiddleware::class);
     }
 
     private function registerCommands(): array
