@@ -45,7 +45,7 @@ class LoginController extends BaseController
 
         session()->put(SessionKeys::ADMIN_VERIFIED, Carbon::now()->toDateTimeString());
 
-        Event::dispatch('admin.login', $user);
+        Event::dispatch('admin.login.success', $user);
 
         return redirect()->route('admin.dashboard');
     }
