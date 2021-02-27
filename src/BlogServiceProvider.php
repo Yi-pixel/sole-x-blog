@@ -13,7 +13,6 @@ use SoleX\Blog\App\Enums\CacheTags;
 use SoleX\Blog\App\Http\Middleware\AdminUserMiddleware;
 use SoleX\Blog\App\Models\User;
 use SoleX\Blog\App\Providers\LivewireServiceProvider;
-use SoleX\Blog\App\Utils\CacheInProductMixin;
 use SoleX\Blog\App\Utils\ParseFileClass;
 use Symfony\Component\Finder\Finder;
 

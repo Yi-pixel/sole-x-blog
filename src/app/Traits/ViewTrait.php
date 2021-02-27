@@ -32,4 +32,11 @@ trait ViewTrait
     ): Factory|View|Application {
         return view(sprintf('%s::%s', BlogServiceProvider::NAMESPACE, $path), $data);
     }
+
+    public function livewire(
+        string $path = '',
+        array|object $data = []
+    ) {
+        return $this->view('livewire.' . $path, $data);
+    }
 }

@@ -22,7 +22,7 @@ class LivewireServiceProvider extends ServiceProvider
             if (!class_exists($class)) {
                 continue;
             }
-            $subClass = str_replace('SoleX\\Blog\\App\\Livewire\\', '', $class);
+            $subClass = str_replace('SoleX\\Blog\\App\\Http\\Livewire\\', '', $class);
             $name = collect(explode('\\', $subClass))
                 ->map(fn($item) => Str::snake($item))
                 ->implode('.');
@@ -43,7 +43,7 @@ class LivewireServiceProvider extends ServiceProvider
         }
         $finder = Finder::create();
         $result = [];
-        $files = $finder->files()->in(__DIR__ . '/../Livewire')->name('*.php');
+        $files = $finder->files()->in(__DIR__ . '/../Http/Livewire')->name('*.php');
         foreach ($files as $file) {
             $parseFileClass = new ParseFileClass($file);
             $result[] = $parseFileClass->getFullClass();

@@ -4,8 +4,12 @@
 namespace SoleX\Blog\App\Models;
 
 
+use SoleX\Blog\App\Traits\FileAttachableTrait;
+
 class User extends \SoleX\Auth\Models\User
 {
+    use FileAttachableTrait;
+
     protected $table = 'users';
 
     protected $fillable = ['name', 'password', 'email', 'nickname'];
@@ -18,5 +22,10 @@ class User extends \SoleX\Auth\Models\User
     public function isAdmin(): bool
     {
         return once(fn() => $this->admin instanceof AdminUser);
+    }
+
+    public function avatar()
+    {
+        return $this->fileAttachableOne();
     }
 }
