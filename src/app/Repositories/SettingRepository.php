@@ -11,6 +11,7 @@ use SoleX\Blog\App\Contracts\Repositories\Setting;
 use SoleX\Blog\App\Models\Setting as SettingModel;
 use SoleX\Blog\App\Observers\SettingRefreshObserver;
 use SoleX\Blog\App\Utils\TypeConverter;
+use Spatie\Once\Cache;
 
 class SettingRepository extends BaseRepository implements Setting
 {
@@ -27,6 +28,7 @@ class SettingRepository extends BaseRepository implements Setting
     {
         $settings = $this->getSettings();
         self::$settings = $settings;
+        Cache::getInstance()->forget($this);
         return $this;
     }
 
@@ -37,13 +39,13 @@ class SettingRepository extends BaseRepository implements Setting
 
     public function fetch($name, $default = null): TypeConverter
     {
-        return new TypeConverter($this->all()->get($name, $default));
+        return once(fn() => new TypeConverter($this->all()->get($name, $default)));
     }
 
 
     public function all(): Collection
     {
-        return self::$settings->pluck('value', 'name');
+        return once(fn() => self::$settings->pluck('value', 'name'));
     }
 
     public function put(string $name, string $value, string $comment = null): bool
@@ -70,14 +72,16 @@ class SettingRepository extends BaseRepository implements Setting
 
     public function json(string $key, string|null $jsonKey = null, $default = null)
     {
-        $config = $this->fetch($key);
-        try {
-            $configArr = json_decode($config, true, 512, JSON_THROW_ON_ERROR);
-            $result = value(Arr::get($configArr, $jsonKey, $default));
-        } catch (JsonException) {
-            $result = null;
-        }
-        return new TypeConverter($result);
+        return once(function () use ($default, $jsonKey, $key) {
+            $config = $this->fetch($key);
+            try {
+                $configArr = json_decode($config, true, 512, JSON_THROW_ON_ERROR);
+                $result = value(Arr::get($configArr, $jsonKey, $default));
+            } catch (JsonException) {
+                $result = $default;
+            }
+            return new TypeConverter($result);
+        });
     }
 
 
