@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use SoleX\Blog\App\Contracts\Repositories\Setting;
+use SoleX\Blog\App\Http\Controller\Admin\IndexController as AdminIndexController;
 use SoleX\Blog\App\Http\Controller\Admin\LoginController as AdminLoginController;
 use SoleX\Blog\App\Http\Controller\IndexController;
 use SoleX\Blog\App\Http\Controller\PostController;
@@ -23,7 +24,7 @@ Route::group(['prefix' => $setting->fetch('url_prefix', config('blog.url_prefix'
             Route::get('/login', LoginController::class)->name('login');
             Route::post('/login', [LoginController::class, 'login']);
 
-            Route::get('/', UserIndexController::class)->name('user-profile')->middleware('auth');
+            Route::get('/', UserIndexController::class)->name('user.profile')->middleware('auth');
         });
 
         // 后台路由
@@ -33,5 +34,9 @@ Route::group(['prefix' => $setting->fetch('url_prefix', config('blog.url_prefix'
         ], function () {
             Route::get('/login', AdminLoginController::class);
             Route::post('/login', [AdminLoginController::class, 'login']);
+
+            Route::group(['middleware' => 'blog_admin:verified'], function () {
+                Route::get('/', AdminIndexController::class)->name('admin.dashboard');
+            });
         });
     });
