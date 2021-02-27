@@ -15,7 +15,7 @@ Route::group(['prefix' => config('blog.url_prefix'), 'middleware' => 'web'], fun
         Route::get('/register', RegisterController::class);
         Route::post('/register', [RegisterController::class, 'register']);
 
-        Route::get('/login', LoginController::class);
+        Route::get('/login', LoginController::class)->name('login');
         Route::post('/login', [LoginController::class, 'login']);
 
         Route::get('/', UserIndexController::class)->name('user-profile')->middleware('auth');
