@@ -15,4 +15,15 @@ class Setting extends BaseModel
     {
         return $builder->where('is_available', true);
     }
+
+    public function setNameAttribute($name)
+    {
+        $this->attributes['name'] = strtolower($name);
+    }
+
+    public function getNameAttribute()
+    {
+        return strtolower($this->attributes['name']);
+    }
+
 }

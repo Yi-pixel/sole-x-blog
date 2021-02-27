@@ -48,6 +48,7 @@ class SettingRepository extends BaseRepository implements Setting
 
     public function put(string $name, string $value, string $comment = null): bool
     {
+        $name = strtolower($name);
         $model = $this->model()->refresh()->create([
             'name'         => $name,
             'value'        => $value,
@@ -62,6 +63,7 @@ class SettingRepository extends BaseRepository implements Setting
         ])->update([
             'is_available' => 0,
         ]);
+
         $this->refresh();
         return true;
     }
@@ -77,4 +79,6 @@ class SettingRepository extends BaseRepository implements Setting
         }
         return new TypeConverter($result);
     }
+
+
 }
