@@ -26,6 +26,11 @@
                             <input type="password" name="password" id="password" placeholder="密码"
                                    class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
                         </div>
+
+                        <div class="mb-6">
+                            <label for="remember" class="text-sm text-gray-600 dark:text-gray-400"><input
+                                        type="checkbox" name="remember" id="remember"/> 保存登录</label>
+                        </div>
                         <div class="mb-6">
                             <button type="submit"
                                     class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
@@ -33,7 +38,7 @@
                             </button>
                         </div>
                         <p class="text-sm text-center text-gray-400">你还没有账号？赶紧 <a href="#!"
-                                                                                  class="text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">注册</a>一个吧。
+                                                                                  class="text-indigo-400 focus:outline-none focus:underline focus:text-indigo-500 dark:focus:border-indigo-800">注册</a> 一个吧。
                         </p>
                     </form>
                 </div>

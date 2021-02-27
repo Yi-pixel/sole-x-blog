@@ -6,6 +6,7 @@ namespace SoleX\Blog\App\Services\User;
 
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 use SoleX\Blog\App\Contracts\Services\User\LoginService as ILoginService;
@@ -17,16 +18,19 @@ class LoginService implements ILoginService
 {
     use LangTrait;
 
-    public function __construct(protected UserRepository $userRepository)
+
+    public function __construct(private UserRepository $userRepository, private Request $request)
     {
     }
 
-    public function login(array $attribute): Authenticatable
+    public function login(): Authenticatable
     {
-        if (!Auth::attempt($attribute)) {
-            throw new AuthenticationException();
-        }
-        $user = $this->userRepository->findByEmail($attribute['email']);
+        $email = $this->request->input('email');
+        $remember = $this->request->has('remember');
+        $attribute = $this->request->only(['email', 'password']);
+        Auth::attempt($attribute, $remember) || throw new AuthenticationException();
+
+        $user = $this->userRepository->findByEmail($email);
 
         /**
          * 黑名单的用户将禁止登陆
@@ -35,7 +39,7 @@ class LoginService implements ILoginService
         assert($blackList instanceof Collection);
         $blackList->isNotEmpty() && throw new BusinessException($this->__('tips.auth.is-blacked'));
 
-        Auth::login($user);
+        Auth::login($user, $remember);
 
         return $user;
     }

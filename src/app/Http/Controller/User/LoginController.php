@@ -20,7 +20,7 @@ class LoginController extends BaseController
 
     public function login(LoginRequest $request, LoginService $loginService)
     {
-        $loginService->login($request->only(['email', 'password']));
+        $loginService->login($request);
         return redirect()->route('user-profile');
     }
 }
