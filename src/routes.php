@@ -24,6 +24,8 @@ Route::group(['prefix' => $setting->fetch('url_prefix', config('blog.url_prefix'
             Route::get('/login', LoginController::class)->name('login');
             Route::post('/login', [LoginController::class, 'login']);
 
+            Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
             Route::get('/', UserIndexController::class)->name('user.profile')->middleware('auth');
         });
 

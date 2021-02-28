@@ -4,6 +4,7 @@
 namespace SoleX\Blog\App\Http\Controller\User;
 
 
+use Illuminate\Support\Facades\Auth;
 use SoleX\Blog\App\Contracts\Services\User\LoginService;
 use SoleX\Blog\App\Http\Controller\BaseController;
 use SoleX\Blog\App\Traits\ViewTrait;
@@ -21,5 +22,11 @@ class LoginController extends BaseController
     {
         $loginService->login();
         return redirect()->route('user.profile');
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect('/');
     }
 }

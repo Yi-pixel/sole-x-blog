@@ -44,7 +44,7 @@
                        href="#">存档</a>
                     @can(\SoleX\Blog\App\Enums\Abilities::SUPER_ADMIN)
                         <a class="my-1 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:mx-4 md:my-0"
-                           href="#">管理后台</a>
+                           href="{{ route('admin.login') }}">管理后台</a>
                     @endcan
                 </div>
 
@@ -68,7 +68,7 @@
                             {{--消息列表--}}
                             <div class="absolute right-0 z-20 mt-2 overflow-hidden bg-white rounded-md shadow-lg w-80 dark:bg-gray-800 hidden"
                                  id="header-notification">
-                                <div class="py-2 border">
+                                <div class="border overflow-hidden">
                                     <a href="#"
                                        class="flex items-center px-4 py-3 -mx-2 transition-colors duration-200 transform border-b hover:bg-gray-100 dark:hover:bg-gray-700 dark:border-gray-700">
                                         <img class="object-cover w-8 h-8 mx-1 rounded-full"
@@ -95,7 +95,7 @@
                             {{--头像列表--}}
                             <div class="absolute right-0 z-20 w-32 mt-2 bg-white rounded-md overflow-hidden shadow-xl dark:bg-gray-800 hidden border-gray-100 border"
                                  id="header-profile">
-                                <a href="#"
+                                <a href="{{ route('user.profile') }}"
                                    class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:text-white">
                                     <svg class="h-6 w-6 inline" fill="none"
                                          viewBox="0 0 24 24" stroke="currentColor">
@@ -133,7 +133,7 @@
                                     </svg>
                                     个人设置
                                 </a>
-                                <a href="#"
+                                <a href="{{ route('logout') }}"
                                    class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:text-white">
                                     <svg class="h-6 w-6 inline" width="24" height="24" viewBox="0 0 24 24"
                                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
