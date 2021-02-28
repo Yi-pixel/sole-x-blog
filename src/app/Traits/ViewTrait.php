@@ -7,6 +7,7 @@ namespace SoleX\Blog\App\Traits;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use SoleX\Blog\App\Providers\ComponentServiceProvider;
 use SoleX\Blog\BlogServiceProvider;
 
 trait ViewTrait
@@ -38,5 +39,17 @@ trait ViewTrait
         array|object $data = []
     ) {
         return $this->view('livewire.' . $path, $data);
+    }
+
+    public function component(
+        string $path = '',
+        array|object $data = []
+    ) {
+        if (empty($path)) {
+            $class = last(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2))['class'];
+            $path = ComponentServiceProvider::classToPath($class);
+        }
+
+        return $this->view('components.' . $path, $data);
     }
 }

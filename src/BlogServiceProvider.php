@@ -12,6 +12,7 @@ use SoleX\Auth\UserProvider;
 use SoleX\Blog\App\Enums\CacheTags;
 use SoleX\Blog\App\Http\Middleware\AdminUserMiddleware;
 use SoleX\Blog\App\Models\User;
+use SoleX\Blog\App\Providers\ComponentServiceProvider;
 use SoleX\Blog\App\Providers\LivewireServiceProvider;
 use SoleX\Blog\App\Utils\ParseFileClass;
 use Symfony\Component\Finder\Finder;
@@ -92,6 +93,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->registerServiceLoader();
         $this->listenCacheClear();
         $this->app->register(LivewireServiceProvider::class);
+        $this->app->register(ComponentServiceProvider::class);
         $this->registerMiddlewareAlias();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/', $namespace);

@@ -17,6 +17,8 @@
     @stack('js')
 </head>
 <body>
+@include('blog::partials.header')
+
 @yield('content')
 @livewireScripts
 </body>

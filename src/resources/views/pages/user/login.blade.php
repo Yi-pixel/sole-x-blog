@@ -33,7 +33,7 @@
                         </div>
                         <div class="mb-6">
                             <button type="submit"
-                                    class="w-full p-2.5 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+                                    class="w-full p-2.5 text-white bg-blue-600 rounded-md focus:bg-indigo-600 focus:outline-none">
                                 登录
                             </button>
                         </div>

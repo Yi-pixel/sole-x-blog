@@ -18,7 +18,7 @@ Route::group(['prefix' => $setting->fetch('url_prefix', config('blog.url_prefix'
         Route::get('/post/{id}', PostController::class);
 
         Route::group(['prefix' => 'user'], function () {
-            Route::get('/register', RegisterController::class);
+            Route::get('/register', RegisterController::class)->name('register');
             Route::post('/register', [RegisterController::class, 'register']);
 
             Route::get('/login', LoginController::class)->name('login');
