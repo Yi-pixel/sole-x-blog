@@ -6,7 +6,9 @@ namespace SoleX\Blog\App\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use SoleX\Blog\App\Enums\SessionKeys;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdminUserMiddleware
 {
@@ -31,7 +33,13 @@ class AdminUserMiddleware
         if (!session()->has(SessionKeys::ADMIN_VERIFIED)) {
             return $response->setStatusCode(401);
         }
+        /**
+         * 如果是超级管理，就放过去。
+         */
+        if (Gate::check('is_super_admin')) {
+            return $next($request);
+        }
 
-        return $response->setStatusCode(403);
+        throw new NotFoundHttpException();
     }
 }
