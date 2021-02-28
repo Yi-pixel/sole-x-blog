@@ -16,7 +16,7 @@
                                 </span>
 
                             <input type="text"
-                                   class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                                   class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-gray-500 dark:focus:border-blue-500 focus:outline-none"
                                    placeholder="Search">
                         </div>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="flex md:hidden">
                     <button type="button"
                             class="text-gray-500 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 focus:outline-none focus:text-gray-600 dark:focus:text-gray-400"
-                            aria-label="toggle menu">
+                            aria-label="toggle menu" id="toggle-header-menu">
                         <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
                             <path fill-rule="evenodd"
                                   d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
@@ -36,7 +36,8 @@
             </div>
 
             <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
-            <div class="items-center md:flex">
+            <div class="items-center md:flex transform-gpu transition-all duration-300"
+                 id="header-menu">
                 <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1">
                     <a class="my-1 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:mx-4 md:my-0"
                        href="#">首页</a>
@@ -87,13 +88,12 @@
 
                         {{--头像按钮--}}
                         <div class="relative" id="toggle-header-profile">
-                            <button class="relative z-10 block p-2 bg-white rounded-md dark:bg-gray-800 focus:outline-none"
-                                    id="toggle-header-profile">
+                            <button class="relative z-10 block p-2 bg-white rounded-md dark:bg-gray-800 focus:outline-none">
                                 <x-user.avatar onerror="this.src='http://q1.qlogo.cn/g?b=qq&nk=721796631&s=640'"
                                                class="w-10 h-10 border rounded-full"></x-user.avatar>
                             </button>
                             {{--头像列表--}}
-                            <div class="absolute right-0 z-20 w-32 mt-2 bg-white rounded-md overflow-hidden shadow-xl dark:bg-gray-800 hidden border-gray-100 border"
+                            <div class="absolute right-0 z-20 w-32 mt-2 bg-white rounded-md overflow-hidden shadow-xl dark:bg-gray-800 hidden border-gray-100 border dark:border-gray-700"
                                  id="header-profile">
                                 <a href="{{ route('user.profile') }}"
                                    class="block px-4 py-2 text-sm text-gray-700 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-blue-500 hover:text-white dark:hover:text-white">
@@ -161,7 +161,7 @@
                             </span>
 
                         <input type="text"
-                               class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"
+                               class="w-full py-2 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-gray-300 dark:focus:border-blue-500 focus:outline-none"
                                placeholder="Search">
                     </div>
                 </div>
