@@ -32,7 +32,7 @@ Route::group(['prefix' => $setting->fetch('url_prefix', config('blog.url_prefix'
             'prefix'     => $setting->fetch('admin_url', config('blog.admin_url', 'admin')),
             'middleware' => 'blog_admin',
         ], function () {
-            Route::get('/login', AdminLoginController::class);
+            Route::get('/login', AdminLoginController::class)->name('admin.login');
             Route::post('/login', [AdminLoginController::class, 'login']);
 
             Route::group(['middleware' => 'blog_admin:verified'], function () {

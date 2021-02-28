@@ -7,6 +7,7 @@ namespace SoleX\Blog\App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use SoleX\Blog\App\Enums\Abilities;
 use SoleX\Blog\App\Enums\SessionKeys;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -36,7 +37,7 @@ class AdminUserMiddleware
         /**
          * 如果是超级管理，就放过去。
          */
-        if (Gate::check('is_super_admin')) {
+        if (Gate::check(Abilities::SUPER_ADMIN)) {
             return $next($request);
         }
 

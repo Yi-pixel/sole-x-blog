@@ -1,7 +1,7 @@
 @extends('blog::layouts.default')
 @section('content')
-    <div class="flex items-center min-h-screen bg-white dark:bg-gray-900">
-        <div class="container mx-auto">
+    <div class="flex items-center min-h-screen bg-white md:bg-gray-200 bg-white">
+        <div class="container mx-auto md:w-1/2 md:bg-white md:rounded-md rounded-none max-w-screen-sm">
             <div class="max-w-md mx-auto my-10">
                 <div class="text-center">
                     <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">注册</h1>
@@ -52,7 +52,7 @@
                             </div>
                             <div class="mb-6">
                                 <button type="submit"
-                                        class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+                                        class="w-full p-2.5 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
                                     注册
                                 </button>
                             </div>

@@ -13,7 +13,7 @@ class IndexController
 
     public function __invoke()
     {
-        var_dump(Auth::user());
-        return $this->pages('user.index');
+        $user = Auth::user();
+        return $this->pages('user.index',compact('user'));
     }
 }

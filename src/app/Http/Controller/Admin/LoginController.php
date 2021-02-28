@@ -9,6 +9,8 @@ use Event;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Gate;
+use SoleX\Blog\App\Enums\Abilities;
 use SoleX\Blog\App\Enums\SessionKeys;
 use SoleX\Blog\App\Http\Controller\BaseController;
 use SoleX\Blog\App\Traits\ViewTrait;
@@ -19,6 +21,10 @@ class LoginController extends BaseController
 
     public function __invoke()
     {
+        if (Gate::check(Abilities::ADMIN_VERIFIED)) {
+            return redirect()->route('admin.dashboard');
+        }
+
         $user = Auth::user();
         return $this->pages('admin.login', compact('user'));
     }
