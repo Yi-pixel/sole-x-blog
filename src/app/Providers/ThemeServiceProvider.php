@@ -7,6 +7,7 @@ namespace SoleX\Blog\App\Providers;
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use SoleX\Blog\App\Contracts\Services\SettingService;
+use SoleX\Blog\App\Enums\SettingKeys;
 
 class ThemeServiceProvider extends ServiceProvider implements DeferrableProvider
 {
@@ -14,7 +15,7 @@ class ThemeServiceProvider extends ServiceProvider implements DeferrableProvider
     {
         $viewPaths = [];
 
-        $theme = $setting->fetch('active-theme');
+        $theme = $setting->fetch(SettingKeys::ACTIVE_THEME);
         if (!$theme?->isEmpty()) {
             is_dir($themeResource = resource_path(sprintf('themes/%s', $theme)))
             && array_unshift($viewPaths, $themeResource);

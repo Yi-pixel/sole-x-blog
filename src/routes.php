@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use SoleX\Blog\App\Contracts\Repositories\Setting;
+use SoleX\Blog\App\Enums\SettingKeys;
 use SoleX\Blog\App\Http\Controller\Admin\IndexController as AdminIndexController;
 use SoleX\Blog\App\Http\Controller\Admin\LoginController as AdminLoginController;
 use SoleX\Blog\App\Http\Controller\IndexController;
@@ -12,7 +13,10 @@ use SoleX\Blog\App\Http\Controller\User\RegisterController;
 
 $setting = app(Setting::class);
 
-Route::group(['prefix' => $setting->fetch('url_prefix', config('blog.url_prefix')), 'middleware' => 'web'],
+Route::group([
+    'prefix'     => $setting->fetch(SettingKeys::URL_PREFIX, config('blog.url_prefix')),
+    'middleware' => 'web',
+],
     function () use ($setting) {
         Route::get('/', IndexController::class);
         Route::get('/post/{id}', PostController::class);
@@ -31,7 +35,7 @@ Route::group(['prefix' => $setting->fetch('url_prefix', config('blog.url_prefix'
 
         // 后台路由
         Route::group([
-            'prefix'     => $setting->fetch('admin_url', config('blog.admin_url', 'admin')),
+            'prefix'     => $setting->fetch(SettingKeys::ADMIN_URL, config('blog.admin_url', 'admin')),
             'middleware' => 'blog_admin',
         ], function () {
             Route::get('/login', AdminLoginController::class)->name('admin.login');
