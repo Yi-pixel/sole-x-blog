@@ -14,6 +14,6 @@ class IndexController
     public function __invoke()
     {
         $user = Auth::user();
-        return $this->pages('user.index',compact('user'));
+        return $this->pages(data: compact('user'));
     }
 }

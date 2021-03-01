@@ -34,6 +34,9 @@
             "providers": [
                 "\\SoleX\\Blog\\BlogServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\SettingServiceProvider",
+                "\\SoleX\\Blog\\App\\Providers\\ThemeServiceProvider",
+                "\\SoleX\\Blog\\App\\Providers\\LivewireServiceProvider",
+                "\\SoleX\\Blog\\App\\Providers\\ComponentServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\UserAuthorityServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\CategoryRouterServiceProvider",
                 "\\SoleX\\Blog\\App\\Providers\\PageRouterServiceProvider"

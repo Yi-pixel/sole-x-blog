@@ -69,7 +69,7 @@
                             {{--消息列表--}}
                             <div class="absolute right-0 z-20 mt-2 overflow-hidden bg-white rounded-md shadow-lg w-80 dark:bg-gray-800 hidden"
                                  id="header-notification">
-                                <div class="border overflow-hidden">
+                                <div class="border overflow-hidden dark:border-gray-800">
                                     <a href="#"
                                        class="flex items-center px-4 py-3 -mx-2 transition-colors duration-200 transform border-b hover:bg-gray-100 dark:hover:bg-gray-700 dark:border-gray-700">
                                         <img class="object-cover w-8 h-8 mx-1 rounded-full"
