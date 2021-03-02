@@ -17,6 +17,7 @@ class CreateCategoryTable extends Migration
             $table->id();
             $table->timestamps();
             $table->softDeletes();
+            $table->string('name')->index()->comment('分类标题');
             $table->string('title')->index()->comment('标题');
             $table->text('intro')->comment('介绍');
             $table->text('keywords')->comment('SEO 关键字');
