@@ -5,12 +5,12 @@ namespace SoleX\Blog\App\Http\Controller;
 
 
 use Illuminate\Http\Request;
-use SoleX\Blog\App\Contracts\Repositories\Post;
+use SoleX\Blog\App\Contracts\Repositories\PostRepository;
 
 class PostController extends BaseController
 {
     public function __construct(
-        protected Post $post,
+        protected PostRepository $post,
     ) {
     }
 

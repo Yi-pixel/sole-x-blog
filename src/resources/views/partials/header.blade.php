@@ -171,6 +171,11 @@
         <div class="py-2 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
             <a class="mx-4 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:my-0"
                href="/">首页</a>
+            @inject('categoryRepository', \SoleX\Blog\App\Contracts\Repositories\CategoryRepository::class)
+            @foreach($categoryRepository->root() as $category)
+                <a class="mx-4 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:my-0"
+                   href="{{ $category->url }}">{{ $category->name }}</a>
+            @endforeach
         </div>
     </div>
 </nav>

@@ -21,13 +21,12 @@ class RegisterService implements IRegisterService
 
     public function register(): Authenticatable
     {
-        $user = $this->userRepository->register([
+        return $this->userRepository->register([
             'name'     => $this->email,
             'email'    => $this->email,
             'nickname' => Str::random(9),
             'password' => $this->hasher->make($this->password),
         ]);
-        return $user;
     }
 
 }

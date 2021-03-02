@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use SoleX\Blog\App\Contracts\Repositories\Setting;
+use SoleX\Blog\App\Contracts\Repositories\SettingRepository;
 use SoleX\Blog\App\Enums\SettingKeys;
 use SoleX\Blog\App\Http\Controller\Admin\IndexController as AdminIndexController;
 use SoleX\Blog\App\Http\Controller\Admin\LoginController as AdminLoginController;
@@ -11,7 +11,7 @@ use SoleX\Blog\App\Http\Controller\User\IndexController as UserIndexController;
 use SoleX\Blog\App\Http\Controller\User\LoginController;
 use SoleX\Blog\App\Http\Controller\User\RegisterController;
 
-$setting = app(Setting::class);
+$setting = app(SettingRepository::class);
 
 Route::group([
     'prefix'     => $setting->fetch(SettingKeys::URL_PREFIX, config('blog.url_prefix')),

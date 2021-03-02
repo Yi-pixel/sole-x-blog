@@ -8,18 +8,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     @stack('meta')
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
-
     @livewireStyles
-
-    <script src="{{ mix('js/app.js') }}" defer></script>
-    @stack('css')
-    @stack('js')
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 </head>
 <body>
 @include('blog::partials.header')
 
 @yield('content')
+
 @livewireScripts
+<script src="{{ mix('js/app.js') }}" defer></script>
+@stack('js')
+@stack('css')
 </body>
 </html>

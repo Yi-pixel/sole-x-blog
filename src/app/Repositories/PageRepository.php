@@ -6,10 +6,9 @@ namespace SoleX\Blog\App\Repositories;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use SoleX\Blog\App\Contracts\Repositories\Page;
 use SoleX\Blog\App\Models\Page as PageModel;
 
-class PageRepository extends BaseRepository implements Page
+class PageRepository extends BaseRepository implements \SoleX\Blog\App\Contracts\Repositories\PageRepository
 {
     protected string $model = PageModel::class;
 

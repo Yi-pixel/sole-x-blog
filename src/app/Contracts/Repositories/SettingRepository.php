@@ -8,8 +8,9 @@ use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\ExpectedValues;
 use SoleX\Blog\App\Enums\SettingKeys;
 use SoleX\Blog\App\Models\Setting as SettingModel;
+use SoleX\Blog\App\Utils\TypeConverter;
 
-interface Setting extends BaseRepository
+interface SettingRepository extends BaseRepository
 {
     /**
      * @return Collection<SettingModel>
@@ -20,10 +21,10 @@ interface Setting extends BaseRepository
     public function fetch(
         #[ExpectedValues(valuesFromClass: SettingKeys::class)]
         string $name,
-        $default = null
-    );
+        mixed $default = null
+    ): null|string|TypeConverter;
 
-    public function refresh(): Setting;
+    public function refresh(): SettingRepository;
 
     public function put(
         #[ExpectedValues(valuesFromClass: SettingKeys::class)] string $name,
@@ -35,6 +36,6 @@ interface Setting extends BaseRepository
         #[ExpectedValues(valuesFromClass: SettingKeys::class)]
         string $key,
         null|string $jsonKey = null,
-        $default = null
-    );
+        mixed $default = null
+    ): null|string|TypeConverter;
 }

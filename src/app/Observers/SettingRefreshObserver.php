@@ -4,11 +4,11 @@
 namespace SoleX\Blog\App\Observers;
 
 
-use SoleX\Blog\App\Contracts\Repositories\Setting;
+use SoleX\Blog\App\Contracts\Repositories\SettingRepository;
 
 class SettingRefreshObserver
 {
-    public function __construct(private Setting $setting)
+    public function __construct(private SettingRepository $setting)
     {
     }
 

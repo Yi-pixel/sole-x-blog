@@ -8,14 +8,13 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\ExpectedValues;
 use JsonException;
-use SoleX\Blog\App\Contracts\Repositories\Setting;
 use SoleX\Blog\App\Enums\SettingKeys;
 use SoleX\Blog\App\Models\Setting as SettingModel;
 use SoleX\Blog\App\Observers\SettingRefreshObserver;
 use SoleX\Blog\App\Utils\TypeConverter;
 use Spatie\Once\Cache;
 
-class SettingRepository extends BaseRepository implements Setting
+class SettingRepository extends BaseRepository implements \SoleX\Blog\App\Contracts\Repositories\SettingRepository
 {
     protected static Collection $settings;
     protected string $model = SettingModel::class;
@@ -39,8 +38,10 @@ class SettingRepository extends BaseRepository implements Setting
         return $this->model()->latest('id')->available()->get(['name', 'value', 'comment'])->toBase();
     }
 
-    public function fetch(#[ExpectedValues(valuesFromClass: SettingKeys::class)] $name, $default = null): TypeConverter
-    {
+    public function fetch(
+        #[ExpectedValues(valuesFromClass: SettingKeys::class)] string $name,
+        mixed $default = null
+    ): TypeConverter {
         return once(fn() => new TypeConverter($this->all()->get($name, $default)));
     }
 
@@ -50,8 +51,11 @@ class SettingRepository extends BaseRepository implements Setting
         return once(fn() => self::$settings->pluck('value', 'name'));
     }
 
-    public function put(#[ExpectedValues(valuesFromClass: SettingKeys::class)] string $name, string $value, string $comment = null): bool
-    {
+    public function put(
+        #[ExpectedValues(valuesFromClass: SettingKeys::class)] string $name,
+        string $value,
+        string $comment = null
+    ): bool {
         $name = strtolower($name);
         $model = $this->model()->refresh()->create([
             'name'         => $name,
@@ -72,8 +76,11 @@ class SettingRepository extends BaseRepository implements Setting
         return true;
     }
 
-    public function json(#[ExpectedValues(valuesFromClass: SettingKeys::class)] string $key, string|null $jsonKey = null, $default = null)
-    {
+    public function json(
+        #[ExpectedValues(valuesFromClass: SettingKeys::class)] string $key,
+        string|null $jsonKey = null,
+        mixed $default = null
+    ): null|string|TypeConverter {
         return once(function () use ($default, $jsonKey, $key) {
             $config = $this->fetch($key);
             try {

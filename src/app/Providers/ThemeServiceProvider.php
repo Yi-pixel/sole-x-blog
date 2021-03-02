@@ -6,8 +6,6 @@ namespace SoleX\Blog\App\Providers;
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
-use SoleX\Blog\App\Contracts\Services\SettingService;
-use SoleX\Blog\App\Enums\SettingKeys;
 use SoleX\Blog\App\Utils\Theme;
 
 class ThemeServiceProvider extends ServiceProvider implements DeferrableProvider
