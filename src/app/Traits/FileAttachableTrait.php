@@ -16,12 +16,12 @@ use SoleX\Blog\App\Models\File;
  */
 trait FileAttachableTrait
 {
-    protected function fileAttachableOne(null|string|false $group = false)
+    protected function fileAttachableOne(null|string|false $group = null)
     {
         return $this->morphOne(File::class, 'attachable')->attachableGroup($this->wrapperGroup($group));
     }
 
-    private function wrapperGroup(string|false $group = false): ?string
+    private function wrapperGroup(null|string|false $group = false): ?string
     {
         if ($group === false) {
             return null;
