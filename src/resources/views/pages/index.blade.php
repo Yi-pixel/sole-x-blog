@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     <div class="bg-gray-200 md:py-5 min-h-screen dark:bg-transparent md:grid md:grid-cols-12">
-        <div class="container mx-auto max-w-screen-xl md:col-span-7 md:col-start-2">
+        <div class="max-w-screen-xl md:col-span-7 md:col-start-2">
             <div class="post-list sm:space-y-10 space-y-5">
                 @inject('postRepository', \SoleX\Blog\App\Contracts\Repositories\PostRepository::class)
                 @php
@@ -11,7 +11,7 @@
                 {{ $list->render() }}
             </div>
         </div>
-        <div class="md:col-span-3 sm:rounded-md my-6 sm:ml-20 md:ml-10 2xl:w-4/6">
+        <div class="md:col-span-3 sm:rounded-md my-6 sm:ml-20 md:ml-10">
             <div class="bg-white sm:rounded-md sm:dark:bg-gray-700 dark:bg-transparent overflow-hidden sm:shadow-md">
                 <div class="text-white p-3 bg-gray-700 dark:bg-gray-900">随机推荐</div>
                 <ul class="leading-6 p-0">
