@@ -11,25 +11,25 @@
                 {{ $list->render() }}
             </div>
         </div>
-        <div class="md:col-span-3 rounded-md my-6 sm:ml-20 md:ml-10 overflow-hidden xl:w-4/6">
-            <div class="bg-white rounded-md">
-                <div class="text-white p-3 bg-gray-700">随机推荐</div>
-                <ul class="leading-6 p-0">
-                    <li class="py-3.5 border-b border-gray-50 hover:bg-blue-50 flex">
-                        <span class="pl-3 ri-link-m mr-1.5 align-middle"></span>
-                        <a href="" class="block text-gray-500 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
+        <div class="md:col-span-3 rounded-md my-6 sm:ml-20 md:ml-10 2xl:w-4/6">
+            <div class="bg-white rounded-md dark:bg-gray-700 overflow-hidden sm:shadow-md">
+                <div class="text-white p-3 bg-gray-700 dark:bg-gray-900">随机推荐</div>
+                <ul class="leading-6 p-0 dark:bg-gray-700">
+                    <li class="py-3.5 border-b border-gray-50 dark:border-gray-600 dark:hover:bg-gray-500 hover:bg-blue-50 flex">
+                        <span class="pl-3 ri-link-m mr-1.5 align-middle dark:text-gray-100"></span>
+                        <a href="" class="block text-gray-500 dark:text-gray-100 dark:hover:text-gray-100 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
                     </li>
-                    <li class="py-3.5 border-b border-gray-50 hover:bg-blue-50 flex">
-                        <span class="pl-3 ri-link-m mr-1.5 align-middle"></span>
-                        <a href="" class="block text-gray-500 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
+                    <li class="py-3.5 border-b border-gray-50 dark:border-gray-600 dark:hover:bg-gray-500 hover:bg-blue-50 flex">
+                        <span class="pl-3 ri-link-m mr-1.5 align-middle dark:text-gray-100"></span>
+                        <a href="" class="block text-gray-500 dark:text-gray-100 dark:hover:text-gray-100 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
                     </li>
-                    <li class="py-3.5 border-b border-gray-50 hover:bg-blue-50 flex">
-                        <span class="pl-3 ri-link-m mr-1.5 align-middle"></span>
-                        <a href="" class="block text-gray-500 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
+                    <li class="py-3.5 border-b border-gray-50 dark:border-gray-600 dark:hover:bg-gray-500 hover:bg-blue-50 flex">
+                        <span class="pl-3 ri-link-m mr-1.5 align-middle dark:text-gray-100"></span>
+                        <a href="" class="block text-gray-500 dark:text-gray-100 dark:hover:text-gray-100 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
                     </li>
-                    <li class="py-3.5 border-b border-gray-50 hover:bg-blue-50 flex">
-                        <span class="pl-3 ri-link-m mr-1.5 align-middle"></span>
-                        <a href="" class="block text-gray-500 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
+                    <li class="py-3.5 border-b border-gray-50 dark:border-gray-600 dark:hover:bg-gray-500 hover:bg-blue-50 flex">
+                        <span class="pl-3 ri-link-m mr-1.5 align-middle dark:text-gray-100"></span>
+                        <a href="" class="block text-gray-500 dark:text-gray-100 dark:hover:text-gray-100 hover:text-gray-700 w-full">高效搜索信息，你需要掌握这些谷歌搜索技巧</a>
                     </li>
                 </ul>
             </div>
