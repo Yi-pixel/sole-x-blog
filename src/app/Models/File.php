@@ -25,10 +25,10 @@ class File extends BaseModel
 
     public function __toString(): string
     {
-        return (string)$this->full_path;
+        return (string)$this->url;
     }
 
-    public function getFullPathAttribute()
+    public function getUrlAttribute()
     {
         return $this->attributes['path'];
     }
