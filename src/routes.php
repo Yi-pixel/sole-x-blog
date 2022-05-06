@@ -19,7 +19,6 @@ Route::group([
 ],
     function () use ($setting) {
         Route::get('/', IndexController::class);
-        Route::get('/post/{id}', PostController::class);
 
         Route::group(['prefix' => 'user'], function () {
             Route::get('/register', RegisterController::class)->name('register');
@@ -44,5 +43,11 @@ Route::group([
             Route::group(['middleware' => 'blog_admin:verified'], function () {
                 Route::get('/', AdminIndexController::class)->name('admin.dashboard');
             });
+        });
+
+        Route::group([
+            'prefix' => 'post',
+        ], function () {
+            Route::get('/{id}', PostController::class)->name('blog.post.view');
         });
     });

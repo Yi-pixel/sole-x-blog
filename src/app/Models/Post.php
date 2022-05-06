@@ -26,4 +26,9 @@ class Post extends BaseModel
     {
         return $this->fileAttachableOne();
     }
+
+    public function category()
+    {
+        return $this->hasOne(Category::class, 'id', 'category_id');
+    }
 }

@@ -1,11 +1,18 @@
 import $ from 'jquery'
 import _ from 'lodash'
-import 'remixicon/fonts/remixicon.css'
-import Han from 'han-css/dist/han.min'
-import 'han-css/dist/han.min.css'
+// import 'remixicon/fonts/remixicon.css'
+// import Han from 'han-css/dist/han.min'
+// import 'han-css/dist/han.min.css'
+import hljs from 'highlight.js'
+import 'highlight.js/styles/solarized-light.css';
 
+window.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.markdown-body pre code').forEach((block) => {
+    hljs.highlightElement(block)
+  })
+})
 !(function () {
-  Han(document.body).render()
+  // Han(document.body).render()
   {
     const $profile = $('#header-profile')
     let profileHide = _.debounce(() => $profile.stop().hide(), 50)

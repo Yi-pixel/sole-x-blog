@@ -5,6 +5,7 @@ namespace SoleX\Blog;
 
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -12,9 +13,6 @@ use SoleX\Auth\UserProvider;
 use SoleX\Blog\App\Enums\CacheTags;
 use SoleX\Blog\App\Http\Middleware\AdminUserMiddleware;
 use SoleX\Blog\App\Models\User;
-use SoleX\Blog\App\Providers\ComponentServiceProvider;
-use SoleX\Blog\App\Providers\LivewireServiceProvider;
-use SoleX\Blog\App\Providers\ThemeServiceProvider;
 use SoleX\Blog\App\Utils\ParseFileClass;
 use Symfony\Component\Finder\Finder;
 
@@ -109,6 +107,8 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/config/blog.php' => config_path('blog.php'),
         ], 'config');
+
+        $this->extendBladeMarkdown();
     }
 
     private function registerServiceLoader(): void
@@ -157,5 +157,12 @@ class BlogServiceProvider extends ServiceProvider
     private function registerCommands(): array
     {
         return [];
+    }
+
+    private function extendBladeMarkdown(): void
+    {
+        Blade::directive('markdown', function ($expression) {
+            return "<?=\Illuminate\Mail\Markdown::parse($expression)?>";
+        });
     }
 }

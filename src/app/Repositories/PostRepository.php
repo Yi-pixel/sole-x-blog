@@ -14,7 +14,7 @@ class PostRepository extends BaseRepository implements \SoleX\Blog\App\Contracts
     public function find(int $id, array $fields = ['*'])
     {
         return $this->model()->with([
-            'author',
+            'user',
             'category',
             'tags',
         ])->find($id, $fields);

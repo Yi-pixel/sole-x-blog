@@ -5,7 +5,7 @@
             <div class="post-list sm:space-y-10 space-y-5">
                 @inject('postRepository', \SoleX\Blog\App\Contracts\Repositories\PostRepository::class)
                 @php
-                    $list = $postRepository->listForPaginate(perPage: min(\Illuminate\Support\Facades\Request::get('per_page',10), 20),with: ['tags','user','cover'])
+                    $list = $postRepository->listForPaginate(perPage: min(\Illuminate\Support\Facades\Request::get('per_page', 10), 20), with: ['tags','user','cover'])
                 @endphp
                 @each('partials.index.post-item', $list->getCollection() ,'post')
                 {{ $list->render() }}

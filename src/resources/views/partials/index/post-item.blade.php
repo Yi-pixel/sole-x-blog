@@ -60,7 +60,8 @@
             </div>
 
             <div class="mt-2">
-                <a href="#"
+                <a href="{{ route('blog.post.view', $post['id']) }}"
+                   title="按住 Ctrl 单击可以在新窗口中继续浏览 “{{ $post['title'] }}”"
                    class="sm:text-sm md:text-md lg:text-lg text-gray-700 font-bold hover:underline dark:text-gray-200">{{ $post['title'] }}</a>
                 <p class="mt-2 text-gray-500 text-sm md:text-md">{{ strip_tags(mb_substr($post['content'], 0, 200)) }}
                     ...</p>
@@ -82,7 +83,7 @@
 
             <!-- User -->
                 <div class="col-none hidden mr-2 lg:block lg:col-start-9 lg:col-end-12">
-                    <a href="#" class="flex items-center">
+                    <a href="#" class="flex items-center" title="查看主页">
                         <img src="{{ $post['user']['avatar']['url'] ?? '' }}"
                              onerror="this.src='http://q1.qlogo.cn/g?b=qq&nk=721796631&s=640'"
                              alt="avatar"
