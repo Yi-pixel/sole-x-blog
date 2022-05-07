@@ -27,7 +27,6 @@ class BlogServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/config/blog.php', 'blog');
 
         $this->registerUserWrapper();
-        $this->registerConfigBinds();
     }
 
     private function registerLoader(): void
@@ -72,25 +71,10 @@ class BlogServiceProvider extends ServiceProvider
         }
     }
 
-    private function registerConfigBinds(): void
-    {
-        $bindClass = config('blog.bind_class') ?: [];
-        foreach ($bindClass as $abstract => $class) {
-            $this->app->bind($abstract, $class);
-        }
-
-        $bindSingleton = config('blog.bind_singleton') ?: [];
-        foreach ($bindSingleton as $abstract => $singleton) {
-            $this->app->singleton($abstract, $singleton);
-        }
-    }
-
     public function boot()
     {
         App::setLocale('zh_CN');
         $namespace = self::NAMESPACE;
-        $this->registerServiceLoader();
-        $this->listenCacheClear();
         $this->registerMiddlewareAlias();
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/resources/lang/', $namespace);
@@ -111,43 +95,6 @@ class BlogServiceProvider extends ServiceProvider
         $this->extendBladeMarkdown();
     }
 
-    private function registerServiceLoader(): void
-    {
-        foreach ($this->getContractList() as $contract) {
-            $contract = explode('\\', $contract);
-            $class = $contract;
-            array_splice($class, 3, 1);
-            $contract = implode('\\', $contract);
-            $class = implode('\\', $class);
-            if (class_exists($class)) {
-                $this->app->bindIf($contract, $class);
-            }
-        }
-    }
-
-    private function getContractList(): array
-    {
-        $cache = Cache::tags(CacheTags::BLOG_SERVICE_CONFIG);
-        $cacheKey = 'contracts';
-        $isProduction = $this->app->environment('production');
-        if ($isProduction && $result = $cache->has($cacheKey)) {
-            return $cache->get($cacheKey);
-        }
-        $finder = new Finder();
-        $contractDir = __DIR__ . '/app/Contracts';
-        $result = [];
-        foreach ($finder->files()->in($contractDir) as $fileInfo) {
-            $path = $fileInfo->getRealPath();
-            $parseFileClass = new ParseFileClass($path);
-            $result[] = $parseFileClass->getFullClass();
-        }
-        $isProduction && $cache->forever($cacheKey, $result);
-        return $result;
-    }
-
-    private function listenCacheClear()
-    {
-    }
 
     private function registerMiddlewareAlias()
     {
