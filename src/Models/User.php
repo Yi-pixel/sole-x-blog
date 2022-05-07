@@ -1,10 +1,10 @@
 <?php
 
 
-namespace SoleX\Blog\App\Models;
+namespace SoleX\Blog\Models;
 
 
-use SoleX\Blog\App\Traits\FileAttachableTrait;
+use SoleX\Blog\Traits\FileAttachableTrait;
 
 class User extends \SoleX\Auth\Models\User
 {

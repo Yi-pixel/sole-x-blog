@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller;
+namespace SoleX\Blog\Http\Controller;
 
 
 use Illuminate\Http\Request;
-use SoleX\Blog\App\Repositories\PostRepository;
-use SoleX\Blog\App\Traits\ViewTrait;
+use SoleX\Blog\Repositories\PostRepository;
+use SoleX\Blog\Traits\ViewTrait;
 
 class PostController extends BaseController
 {

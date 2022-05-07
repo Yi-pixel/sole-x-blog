@@ -1,11 +1,11 @@
 <?php
 
 
-namespace SoleX\Blog\App\Enums;
+namespace SoleX\Blog\Enums;
 
 
-use SoleX\Blog\App\Repositories\SettingRepository;
-use SoleX\Blog\App\Utils\TypeConverter;
+use SoleX\Blog\Repositories\SettingRepository;
+use SoleX\Blog\Utils\TypeConverter;
 
 enum SettingKeys: string
 {

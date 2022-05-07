@@ -1,17 +1,17 @@
 <?php
 
 
-namespace SoleX\Blog\App\Traits;
+namespace SoleX\Blog\Traits;
 
 
 use Illuminate\Database\Eloquent\Model;
 use RuntimeException;
-use SoleX\Blog\App\Models\File;
+use SoleX\Blog\Models\File;
 
 /**
  * Trait FileAttachableTrait
  *
- * @package SoleX\Blog\App\Traits
+ * @package SoleX\Blog\Traits
  * @mixin Model
  */
 trait FileAttachableTrait

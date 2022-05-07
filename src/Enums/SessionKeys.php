@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Enums;
+namespace SoleX\Blog\Enums;
 
 
 use MyCLabs\Enum\Enum;

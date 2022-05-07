@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repositories;
+namespace SoleX\Blog\Repositories;
 
 
 use Illuminate\Database\Eloquent\Model;
 use InvalidArgumentException;
-use SoleX\Blog\App\Models\BaseModel;
+use SoleX\Blog\Models\BaseModel;
 
 abstract class BaseRepository
 {

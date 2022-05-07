@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Services\User;
+namespace SoleX\Blog\Services\User;
 
 
 use Illuminate\Auth\AuthenticationException;
@@ -9,9 +9,9 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use SoleX\Blog\App\Exceptions\BusinessException;
-use SoleX\Blog\App\Repositories\UserRepository;
-use SoleX\Blog\App\Traits\LangTrait;
+use SoleX\Blog\Exceptions\BusinessException;
+use SoleX\Blog\Repositories\UserRepository;
+use SoleX\Blog\Traits\LangTrait;
 
 class LoginService
 {

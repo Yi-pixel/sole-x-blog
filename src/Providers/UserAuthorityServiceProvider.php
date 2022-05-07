@@ -1,14 +1,14 @@
 <?php
 
 
-namespace SoleX\Blog\App\Providers;
+namespace SoleX\Blog\Providers;
 
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use SoleX\Blog\App\Enums\Abilities;
-use SoleX\Blog\App\Enums\SessionKeys;
+use SoleX\Blog\Enums\Abilities;
+use SoleX\Blog\Enums\SessionKeys;
 
 class UserAuthorityServiceProvider extends ServiceProvider
 {

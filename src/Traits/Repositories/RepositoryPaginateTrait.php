@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Traits\Repositories;
+namespace SoleX\Blog\Traits\Repositories;
 
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
@@ -11,7 +11,7 @@ use app\Repositories\BaseRepository;
  * Trait RepositoryPaginateTrait
  *
  * @mixin BaseRepository
- * @package SoleX\Blog\App\Traits\Repositories
+ * @package SoleX\Blog\Traits\Repositories
  */
 trait RepositoryPaginateTrait
 {

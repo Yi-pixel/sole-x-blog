@@ -1,11 +1,11 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller\Admin;
+namespace SoleX\Blog\Http\Controller\Admin;
 
 
 use Illuminate\Support\Facades\Auth;
-use SoleX\Blog\App\Http\Controller\BaseController;
+use SoleX\Blog\Http\Controller\BaseController;
 
 class IndexController extends BaseController
 {

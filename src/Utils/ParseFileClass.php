@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Utils;
+namespace SoleX\Blog\Utils;
 
 
 use PhpParser\Node\Stmt\Class_;

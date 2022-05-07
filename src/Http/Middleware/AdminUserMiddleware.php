@@ -1,14 +1,14 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Middleware;
+namespace SoleX\Blog\Http\Middleware;
 
 
 use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use SoleX\Blog\App\Enums\Abilities;
-use SoleX\Blog\App\Enums\SessionKeys;
+use SoleX\Blog\Enums\Abilities;
+use SoleX\Blog\Enums\SessionKeys;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class AdminUserMiddleware

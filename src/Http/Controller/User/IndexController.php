@@ -1,11 +1,11 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller\User;
+namespace SoleX\Blog\Http\Controller\User;
 
 
 use Illuminate\Support\Facades\Auth;
-use SoleX\Blog\App\Traits\ViewTrait;
+use SoleX\Blog\Traits\ViewTrait;
 
 class IndexController
 {

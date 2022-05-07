@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Models;
+namespace SoleX\Blog\Models;
 
 
 class PostTagRelation extends BaseModel

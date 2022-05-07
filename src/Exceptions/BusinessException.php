@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Exceptions;
+namespace SoleX\Blog\Exceptions;
 
 
 use Exception;

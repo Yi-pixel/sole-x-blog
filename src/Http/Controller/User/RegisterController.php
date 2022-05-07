@@ -1,14 +1,14 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller\User;
+namespace SoleX\Blog\Http\Controller\User;
 
 
 use Illuminate\Support\Facades\Auth;
-use SoleX\Blog\App\Services\User\RegisterService;
-use SoleX\Blog\App\Http\Controller\BaseController;
-use SoleX\Blog\App\Requests\User\RegisterRequest;
-use SoleX\Blog\App\Traits\ViewTrait;
+use SoleX\Blog\Services\User\RegisterService;
+use SoleX\Blog\Http\Controller\BaseController;
+use SoleX\Blog\Requests\User\RegisterRequest;
+use SoleX\Blog\Traits\ViewTrait;
 
 class RegisterController extends BaseController
 {

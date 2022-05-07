@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller;
+namespace SoleX\Blog\Http\Controller;
 
 
 use Illuminate\Foundation\Bus\DispatchesJobs;

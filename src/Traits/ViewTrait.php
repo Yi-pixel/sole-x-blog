@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Traits;
+namespace SoleX\Blog\Traits;
 
 
 use Illuminate\Contracts\Foundation\Application;
@@ -9,7 +9,7 @@ use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
-use SoleX\Blog\App\Providers\ComponentServiceProvider;
+use SoleX\Blog\Providers\ComponentServiceProvider;
 
 trait ViewTrait
 {

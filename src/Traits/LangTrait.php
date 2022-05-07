@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Traits;
+namespace SoleX\Blog\Traits;
 
 
 use Illuminate\Contracts\Foundation\Application;

@@ -1,15 +1,15 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use SoleX\Blog\App\Repositories\SettingRepository;
-use SoleX\Blog\App\Enums\SettingKeys;
-use SoleX\Blog\App\Http\Controller\Admin\IndexController as AdminIndexController;
-use SoleX\Blog\App\Http\Controller\Admin\LoginController as AdminLoginController;
-use SoleX\Blog\App\Http\Controller\IndexController;
-use SoleX\Blog\App\Http\Controller\PostController;
-use SoleX\Blog\App\Http\Controller\User\IndexController as UserIndexController;
-use SoleX\Blog\App\Http\Controller\User\LoginController;
-use SoleX\Blog\App\Http\Controller\User\RegisterController;
+use SoleX\Blog\Repositories\SettingRepository;
+use SoleX\Blog\Enums\SettingKeys;
+use SoleX\Blog\Http\Controller\Admin\IndexController as AdminIndexController;
+use SoleX\Blog\Http\Controller\Admin\LoginController as AdminLoginController;
+use SoleX\Blog\Http\Controller\IndexController;
+use SoleX\Blog\Http\Controller\PostController;
+use SoleX\Blog\Http\Controller\User\IndexController as UserIndexController;
+use SoleX\Blog\Http\Controller\User\LoginController;
+use SoleX\Blog\Http\Controller\User\RegisterController;
 
 $setting = app(SettingRepository::class);
 

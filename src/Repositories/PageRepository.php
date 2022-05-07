@@ -1,13 +1,13 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repositories;
+namespace SoleX\Blog\Repositories;
 
 
 use app\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
-use SoleX\Blog\App\Models\Page as PageModel;
+use SoleX\Blog\Models\Page as PageModel;
 
 class PageRepository extends BaseRepository
 {

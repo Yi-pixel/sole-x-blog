@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repositories;
+namespace SoleX\Blog\Repositories;
 
 
 use app\Repositories\BaseRepository;
 use Illuminate\Support\Collection;
-use SoleX\Blog\App\Models\Category as CategoryModel;
+use SoleX\Blog\Models\Category as CategoryModel;
 
 class CategoryRepository extends BaseRepository
 {

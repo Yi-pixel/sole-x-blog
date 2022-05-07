@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Services;
+namespace SoleX\Blog\Services;
 
 
 use Illuminate\Http\Request;
-use SoleX\Blog\App\Models\Page;
-use SoleX\Blog\App\Repositories\PageRepository;
+use SoleX\Blog\Models\Page;
+use SoleX\Blog\Repositories\PageRepository;
 
 class PageService
 {

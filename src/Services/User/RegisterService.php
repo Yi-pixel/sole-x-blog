@@ -1,13 +1,13 @@
 <?php
 
 
-namespace SoleX\Blog\App\Services\User;
+namespace SoleX\Blog\Services\User;
 
 
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Support\Str;
-use SoleX\Blog\App\Repositories\UserRepository;
+use SoleX\Blog\Repositories\UserRepository;
 
 class RegisterService
 {

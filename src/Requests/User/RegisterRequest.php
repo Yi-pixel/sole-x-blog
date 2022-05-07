@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Requests\User;
+namespace SoleX\Blog\Requests\User;
 
 
 use Illuminate\Foundation\Http\FormRequest;

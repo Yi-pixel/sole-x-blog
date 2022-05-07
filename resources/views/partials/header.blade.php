@@ -43,7 +43,7 @@
                        href="#">首页</a>
                     <a class="my-1 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:mx-4 md:my-0"
                        href="#">存档</a>
-                    @can(\SoleX\Blog\App\Enums\Abilities::SuperAdmin->value)
+                    @can(\SoleX\Blog\Enums\Abilities::SuperAdmin->value)
                         <a class="my-1 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:mx-4 md:my-0"
                            href="{{ route('admin.login') }}">管理后台</a>
                     @endcan
@@ -171,7 +171,7 @@
         <div class="py-2 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
             <a class="mx-4 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:my-0"
                href="/">首页</a>
-            @inject('categoryRepository', \SoleX\Blog\App\Repositories\CategoryRepository::class)
+            @inject('categoryRepository', \SoleX\Blog\Repositories\CategoryRepository::class)
             @foreach($categoryRepository->root() as $category)
                 <a class="mx-4 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:my-0"
                    href="{{ $category->url }}">{{ $category->name }}</a>

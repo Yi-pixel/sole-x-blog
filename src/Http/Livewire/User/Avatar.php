@@ -1,13 +1,13 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Livewire\User;
+namespace SoleX\Blog\Http\Livewire\User;
 
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 use Livewire\Component;
-use SoleX\Blog\App\Traits\ViewTrait;
+use SoleX\Blog\Traits\ViewTrait;
 
 class Avatar extends Component
 {

@@ -1,13 +1,13 @@
 <?php
 
 
-namespace SoleX\Blog\App\View\Components\User;
+namespace SoleX\Blog\View\Components\User;
 
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
 use Illuminate\View\Component;
-use SoleX\Blog\App\Traits\ViewTrait;
+use SoleX\Blog\Traits\ViewTrait;
 
 class Avatar extends Component
 {

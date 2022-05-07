@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repositories;
+namespace SoleX\Blog\Repositories;
 
 
 use app\Repositories\BaseRepository;
@@ -9,10 +9,10 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\ExpectedValues;
 use JsonException;
-use SoleX\Blog\App\Enums\SettingKeys;
-use SoleX\Blog\App\Models\Setting as SettingModel;
-use SoleX\Blog\App\Observers\SettingRefreshObserver;
-use SoleX\Blog\App\Utils\TypeConverter;
+use SoleX\Blog\Enums\SettingKeys;
+use SoleX\Blog\Models\Setting as SettingModel;
+use SoleX\Blog\Observers\SettingRefreshObserver;
+use SoleX\Blog\Utils\TypeConverter;
 use Spatie\Once\Cache;
 
 class SettingRepository extends BaseRepository

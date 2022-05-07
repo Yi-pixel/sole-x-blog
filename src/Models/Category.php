@@ -1,11 +1,11 @@
 <?php
 
 
-namespace SoleX\Blog\App\Models;
+namespace SoleX\Blog\Models;
 
 
 use Illuminate\Database\Eloquent\Builder;
-use SoleX\Blog\App\Utils\Helper;
+use SoleX\Blog\Utils\Helper;
 
 class Category extends BaseModel
 {

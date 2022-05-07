@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Providers;
+namespace SoleX\Blog\Providers;
 
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use SoleX\Blog\App\Repositories\SettingRepository;
+use SoleX\Blog\Repositories\SettingRepository;
 
 class SettingServiceProvider extends ServiceProvider
 {

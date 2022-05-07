@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Providers;
+namespace SoleX\Blog\Providers;
 
 
 use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
-use SoleX\Blog\App\Utils\Theme;
+use SoleX\Blog\Utils\Theme;
 
 class ThemeServiceProvider extends ServiceProvider implements DeferrableProvider
 {

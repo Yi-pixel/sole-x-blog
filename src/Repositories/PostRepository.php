@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repositories;
+namespace SoleX\Blog\Repositories;
 
 
 use app\Repositories\BaseRepository;
 use Illuminate\Contracts\Pagination\Paginator;
-use SoleX\Blog\App\Models\Post as PostModel;
+use SoleX\Blog\Models\Post as PostModel;
 
 class PostRepository extends BaseRepository
 {

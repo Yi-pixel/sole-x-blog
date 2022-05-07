@@ -1,13 +1,13 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller\User;
+namespace SoleX\Blog\Http\Controller\User;
 
 
 use Illuminate\Support\Facades\Auth;
-use SoleX\Blog\App\Services\User\LoginService;
-use SoleX\Blog\App\Http\Controller\BaseController;
-use SoleX\Blog\App\Traits\ViewTrait;
+use SoleX\Blog\Services\User\LoginService;
+use SoleX\Blog\Http\Controller\BaseController;
+use SoleX\Blog\Traits\ViewTrait;
 
 class LoginController extends BaseController
 {

@@ -1,15 +1,15 @@
 <?php
 
 
-namespace SoleX\Blog\App\Providers;
+namespace SoleX\Blog\Providers;
 
 
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use Livewire\Livewire;
-use SoleX\Blog\App\Enums\CacheTags;
-use SoleX\Blog\App\Utils\ParseFileClass;
+use SoleX\Blog\Enums\CacheTags;
+use SoleX\Blog\Utils\ParseFileClass;
 use Symfony\Component\Finder\Finder;
 
 class LivewireServiceProvider extends ServiceProvider

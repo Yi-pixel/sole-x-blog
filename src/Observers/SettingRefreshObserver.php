@@ -1,10 +1,10 @@
 <?php
 
 
-namespace SoleX\Blog\App\Observers;
+namespace SoleX\Blog\Observers;
 
 
-use SoleX\Blog\App\Repositories\SettingRepository;
+use SoleX\Blog\Repositories\SettingRepository;
 
 class SettingRefreshObserver
 {

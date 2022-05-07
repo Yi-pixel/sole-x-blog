@@ -1,15 +1,15 @@
 <?php
 
 
-namespace SoleX\Blog\App\Http\Controller;
+namespace SoleX\Blog\Http\Controller;
 
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use SoleX\Blog\App\Repositories\PageRepository;
-use SoleX\Blog\App\Services\PageService;
-use SoleX\Blog\App\Traits\LangTrait;
-use SoleX\Blog\App\Traits\ViewTrait;
+use SoleX\Blog\Repositories\PageRepository;
+use SoleX\Blog\Services\PageService;
+use SoleX\Blog\Traits\LangTrait;
+use SoleX\Blog\Traits\ViewTrait;
 
 class PageController
 {

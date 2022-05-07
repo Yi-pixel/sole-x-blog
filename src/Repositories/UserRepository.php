@@ -1,12 +1,12 @@
 <?php
 
 
-namespace SoleX\Blog\App\Repositories;
+namespace SoleX\Blog\Repositories;
 
 
 use app\Repositories\BaseRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
-use SoleX\Blog\App\Models\User;
+use SoleX\Blog\Models\User;
 
 class UserRepository extends BaseRepository
 {

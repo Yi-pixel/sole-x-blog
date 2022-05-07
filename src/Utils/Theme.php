@@ -1,11 +1,11 @@
 <?php
 
 
-namespace SoleX\Blog\App\Utils;
+namespace SoleX\Blog\Utils;
 
 
-use SoleX\Blog\App\Repositories\SettingRepository;
-use SoleX\Blog\App\Enums\SettingKeys;
+use SoleX\Blog\Repositories\SettingRepository;
+use SoleX\Blog\Enums\SettingKeys;
 
 class Theme
 {
