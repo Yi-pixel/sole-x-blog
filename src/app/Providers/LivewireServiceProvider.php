@@ -35,7 +35,7 @@ class LivewireServiceProvider extends ServiceProvider
      */
     private function getClassList(): array
     {
-        $cache = Cache::tags(CacheTags::BLOG_SERVICE_CONFIG);
+        $cache = CacheTags::BlogServiceConfig->store();
         $cacheKey = 'livewire-components';
         $isProduction = $this->app->environment('production');
         if ($isProduction && $result = $cache->has($cacheKey)) {

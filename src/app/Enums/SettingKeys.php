@@ -4,13 +4,21 @@
 namespace SoleX\Blog\App\Enums;
 
 
-class SettingKeys
+use SoleX\Blog\App\Repositories\SettingRepository;
+use SoleX\Blog\App\Utils\TypeConverter;
+
+enum SettingKeys: string
 {
-    public const ACTIVE_THEME = 'active-theme';
+    case ActiveTheme = 'active-theme';
 
-    public const ALLOW_REGISTER = 'allow_register';
+    case AllowRegister = 'allow_register';
 
-    public const ADMIN_URL = 'admin_url';
+    case AdminUrl = 'admin_url';
 
-    public const URL_PREFIX = 'url_prefix';
+    case UrlPrefix = 'url_prefix';
+
+    public function fetch(mixed $default = null): TypeConverter
+    {
+        return app(SettingRepository::class)->fetch($this, $default);
+    }
 }

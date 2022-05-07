@@ -21,7 +21,7 @@ class LoginController extends BaseController
 
     public function __invoke()
     {
-        if (Gate::check(Abilities::ADMIN_VERIFIED)) {
+        if (Gate::check(Abilities::AdminVerified->value)) {
             return redirect()->route('admin.dashboard');
         }
 
@@ -49,7 +49,7 @@ class LoginController extends BaseController
             $admin->save();
         }
 
-        session()->put(SessionKeys::ADMIN_VERIFIED, Carbon::now()->toDateTimeString());
+        session()->put(SessionKeys::AdminVerified->value, Carbon::now()->toDateTimeString());
 
         Event::dispatch('admin.login.success', $user);
 

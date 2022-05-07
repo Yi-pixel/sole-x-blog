@@ -17,7 +17,8 @@ use Spatie\Once\Cache;
 class SettingRepository extends BaseRepository
 {
     protected static Collection $settings;
-    protected string $model = SettingModel::class;
+
+    protected string            $model = SettingModel::class;
 
     public function __construct()
     {
@@ -30,6 +31,7 @@ class SettingRepository extends BaseRepository
         $settings = $this->getSettings();
         self::$settings = $settings;
         Cache::getInstance()->forget($this);
+
         return $this;
     }
 
@@ -39,10 +41,10 @@ class SettingRepository extends BaseRepository
     }
 
     public function fetch(
-        #[ExpectedValues(valuesFromClass: SettingKeys::class)] string $name,
+        SettingKeys $name,
         mixed $default = null
     ): TypeConverter {
-        return once(fn() => new TypeConverter($this->all()->get($name, $default)));
+        return once(fn() => new TypeConverter($this->all()->get($name->value, $default)));
     }
 
 
@@ -52,16 +54,15 @@ class SettingRepository extends BaseRepository
     }
 
     public function put(
-        #[ExpectedValues(valuesFromClass: SettingKeys::class)] string $name,
+        SettingKeys $name,
         string $value,
         string $comment = null
     ): bool {
-        $name = strtolower($name);
         $model = $this->model()->refresh()->create([
             'name'         => $name,
             'value'        => $value,
             'is_available' => 1,
-            'comment'      => $comment ?: sprintf(self::$settings->get('%s.comment'), $name),
+            'comment'      => $comment ?: self::$settings->get($name->value . '.comment'),
         ]);
 
         $this->model()->where([
@@ -73,11 +74,12 @@ class SettingRepository extends BaseRepository
         ]);
 
         $this->refresh();
+
         return true;
     }
 
     public function json(
-        #[ExpectedValues(valuesFromClass: SettingKeys::class)] string $key,
+        SettingKeys $key,
         string|null $jsonKey = null,
         mixed $default = null
     ): null|string|TypeConverter {
@@ -89,6 +91,7 @@ class SettingRepository extends BaseRepository
             } catch (JsonException) {
                 $result = $default;
             }
+
             return new TypeConverter($result);
         });
     }

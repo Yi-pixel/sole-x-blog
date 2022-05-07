@@ -4,10 +4,9 @@
 namespace SoleX\Blog\App\Enums;
 
 
-use MyCLabs\Enum\Enum;
 
-class Abilities extends Enum
+enum Abilities: string
 {
-    public const ADMIN_VERIFIED = 'admin:verified';
-    public const SUPER_ADMIN    = 'super_admin';
+    case AdminVerified = 'admin:verified';
+    case SuperAdmin = 'super_admin';
 }

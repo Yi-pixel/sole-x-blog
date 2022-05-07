@@ -25,7 +25,7 @@
                         </div>
                     </div>
                 @endif
-                @if($setting->fetch(\SoleX\Blog\App\Enums\SettingKeys::ALLOW_REGISTER, false)->isTrue())
+                @if(\SoleX\Blog\App\Enums\SettingKeys::AllowRegister->fetch(false)->isTrue())
                     <div class="m-7">
                         <form action="" method="post">
                             {{ csrf_field() }}

@@ -15,11 +15,11 @@ class Theme
 
     public function set($name)
     {
-        return once(fn() => $this->setting->put(SettingKeys::ACTIVE_THEME, $name));
+        return once(fn() => $this->setting->put(SettingKeys::ActiveTheme, $name));
     }
 
     public function get()
     {
-        return once(fn() => $this->setting->fetch(SettingKeys::ACTIVE_THEME));
+        return once(fn() => $this->setting->fetch(SettingKeys::ActiveTheme));
     }
 }

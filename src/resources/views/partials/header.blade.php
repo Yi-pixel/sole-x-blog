@@ -43,7 +43,7 @@
                        href="#">首页</a>
                     <a class="my-1 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:mx-4 md:my-0"
                        href="#">存档</a>
-                    @can(\SoleX\Blog\App\Enums\Abilities::SUPER_ADMIN)
+                    @can(\SoleX\Blog\App\Enums\Abilities::SuperAdmin->value)
                         <a class="my-1 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:mx-4 md:my-0"
                            href="{{ route('admin.login') }}">管理后台</a>
                     @endcan

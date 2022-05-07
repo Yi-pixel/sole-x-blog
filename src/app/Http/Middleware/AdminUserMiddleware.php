@@ -31,13 +31,13 @@ class AdminUserMiddleware
         }
 
         // 如果会话未验证，就返回 401
-        if (!session()->has(SessionKeys::ADMIN_VERIFIED)) {
+        if (!session()->has(SessionKeys::AdminVerified->value)) {
             return $response->setStatusCode(401);
         }
         /**
          * 如果是超级管理，就放过去。
          */
-        if (Gate::check(Abilities::SUPER_ADMIN)) {
+        if (Gate::check(Abilities::SuperAdmin->value)) {
             return $next($request);
         }
 
