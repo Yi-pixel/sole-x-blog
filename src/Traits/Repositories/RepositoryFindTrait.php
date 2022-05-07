@@ -5,7 +5,7 @@ namespace SoleX\Blog\Traits\Repositories;
 
 
 use Illuminate\Database\Eloquent\Model;
-use app\Repositories\BaseRepository;
+
 
 /**
  * Trait RepositoryFindTrait

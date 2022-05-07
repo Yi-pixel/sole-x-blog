@@ -4,7 +4,7 @@
 namespace SoleX\Blog\Repositories;
 
 
-use app\Repositories\BaseRepository;
+
 use Illuminate\Support\Collection;
 use SoleX\Blog\Models\Category as CategoryModel;
 
