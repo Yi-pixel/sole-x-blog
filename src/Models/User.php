@@ -6,6 +6,9 @@ namespace SoleX\Blog\Models;
 
 use SoleX\Blog\Traits\FileAttachableTrait;
 
+/**
+ * @property ?AdminUser $admin
+ */
 class User extends \SoleX\Auth\Models\User
 {
     use FileAttachableTrait;

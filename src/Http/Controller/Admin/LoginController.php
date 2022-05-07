@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Gate;
 use SoleX\Blog\Enums\Abilities;
 use SoleX\Blog\Enums\SessionKeys;
 use SoleX\Blog\Http\Controller\BaseController;
+use SoleX\Blog\Models\User;
 use SoleX\Blog\Traits\ViewTrait;
 
 class LoginController extends BaseController
@@ -26,6 +27,7 @@ class LoginController extends BaseController
         }
 
         $user = Auth::user();
+
         return $this->pages('admin.login', compact('user'));
     }
 
@@ -34,12 +36,17 @@ class LoginController extends BaseController
         ['password' => $password] = $this->validate($request, ['password' => 'bail|required|min:5']);
 
         $user = Auth::user();
+
+        // 必须是用户且是管理员
+        assert($user instanceof User && $user->isAdmin());
+
         $admin = $user->admin;
         $adminPassword = $admin->password;
         $check = $hasher->check($password, $adminPassword);
 
         if (!$check) {
             Event::dispatch('admin.login.failed', $request->all());
+
             return back();
         }
 
