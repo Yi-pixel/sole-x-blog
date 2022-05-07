@@ -7,4 +7,7 @@ return [
     'bind_singleton' => [
 
     ],
+    'commands'       => [
+        \SoleX\Blog\Console\Commands\ImportFirstDataCommand::class,
+    ],
 ];
