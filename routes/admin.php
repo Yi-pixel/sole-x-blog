@@ -12,7 +12,7 @@ $prefix = rtrim($prefix, '/');
 
 Route::group([
     'prefix'     => $prefix,
-    'middleware' => 'blog_admin',
+    'middleware' => ['web', 'blog_admin'],
 ], function () {
     Route::get('/login', LoginController::class)->name('admin.login');
     Route::post('/login', [LoginController::class, 'login']);
