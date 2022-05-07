@@ -23,7 +23,7 @@ class SettingRepository extends BaseRepository
     public function __construct()
     {
         forward_static_call([$this->model, 'observe'], SettingRefreshObserver::class);
-        $this->refresh();
+        //$this->refresh();
     }
 
     public function refresh(): static
@@ -50,7 +50,11 @@ class SettingRepository extends BaseRepository
 
     public function all(): Collection
     {
-        return once(fn() => self::$settings->pluck('value', 'name'));
+        if (!isset(self::$settings)) {
+            return collect();
+        }
+
+        return once(fn() => self::$settings?->pluck('value', 'name'));
     }
 
     public function put(
