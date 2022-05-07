@@ -6,7 +6,7 @@ namespace SoleX\Blog\App\Providers;
 
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
-use SoleX\Blog\App\Contracts\Repositories\SettingRepository;
+use SoleX\Blog\App\Repositories\SettingRepository;
 
 class SettingServiceProvider extends ServiceProvider
 {

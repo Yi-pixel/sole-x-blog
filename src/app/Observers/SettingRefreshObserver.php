@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Observers;
 
 
-use SoleX\Blog\App\Contracts\Repositories\SettingRepository;
+use SoleX\Blog\App\Repositories\SettingRepository;
 
 class SettingRefreshObserver
 {

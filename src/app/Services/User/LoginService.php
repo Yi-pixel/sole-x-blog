@@ -9,12 +9,11 @@ use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
-use SoleX\Blog\App\Contracts\Services\User\LoginService as ILoginService;
 use SoleX\Blog\App\Exceptions\BusinessException;
 use SoleX\Blog\App\Repositories\UserRepository;
 use SoleX\Blog\App\Traits\LangTrait;
 
-class LoginService implements ILoginService
+class LoginService
 {
     use LangTrait;
 

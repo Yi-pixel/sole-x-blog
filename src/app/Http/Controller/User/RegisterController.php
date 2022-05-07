@@ -5,7 +5,7 @@ namespace SoleX\Blog\App\Http\Controller\User;
 
 
 use Illuminate\Support\Facades\Auth;
-use SoleX\Blog\App\Contracts\Services\User\RegisterService;
+use SoleX\Blog\App\Services\User\RegisterService;
 use SoleX\Blog\App\Http\Controller\BaseController;
 use SoleX\Blog\App\Requests\User\RegisterRequest;
 use SoleX\Blog\App\Traits\ViewTrait;

@@ -14,7 +14,7 @@ use SoleX\Blog\App\Observers\SettingRefreshObserver;
 use SoleX\Blog\App\Utils\TypeConverter;
 use Spatie\Once\Cache;
 
-class SettingRepository extends BaseRepository implements \SoleX\Blog\App\Contracts\Repositories\SettingRepository
+class SettingRepository extends BaseRepository
 {
     protected static Collection $settings;
     protected string $model = SettingModel::class;

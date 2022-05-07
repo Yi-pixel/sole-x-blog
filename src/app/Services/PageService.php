@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use SoleX\Blog\App\Models\Page;
 use SoleX\Blog\App\Repositories\PageRepository;
 
-class PageService implements \SoleX\Blog\App\Contracts\Services\PageService
+class PageService
 {
     public function __construct(private PageRepository $pageRepository, private Request $request)
     {

@@ -7,10 +7,9 @@ namespace SoleX\Blog\App\Services\User;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Support\Str;
-use SoleX\Blog\App\Contracts\Services\User\RegisterService as IRegisterService;
 use SoleX\Blog\App\Repositories\UserRepository;
 
-class RegisterService implements IRegisterService
+class RegisterService
 {
     public string $email;
     public string $password;

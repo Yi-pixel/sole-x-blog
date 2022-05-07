@@ -4,7 +4,7 @@
 namespace SoleX\Blog\App\Utils;
 
 
-use SoleX\Blog\App\Contracts\Repositories\SettingRepository;
+use SoleX\Blog\App\Repositories\SettingRepository;
 use SoleX\Blog\App\Enums\SettingKeys;
 
 class Theme

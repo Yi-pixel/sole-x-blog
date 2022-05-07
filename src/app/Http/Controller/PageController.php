@@ -6,8 +6,8 @@ namespace SoleX\Blog\App\Http\Controller;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use SoleX\Blog\App\Contracts\Repositories\PageRepository;
-use SoleX\Blog\App\Contracts\Services\PageService;
+use SoleX\Blog\App\Repositories\PageRepository;
+use SoleX\Blog\App\Services\PageService;
 use SoleX\Blog\App\Traits\LangTrait;
 use SoleX\Blog\App\Traits\ViewTrait;
 

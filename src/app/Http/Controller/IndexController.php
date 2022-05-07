@@ -5,7 +5,7 @@ namespace SoleX\Blog\App\Http\Controller;
 
 
 use Illuminate\Http\Request;
-use SoleX\Blog\App\Contracts\Repositories\SettingRepository;
+use SoleX\Blog\App\Repositories\SettingRepository;
 use SoleX\Blog\App\Traits\ViewTrait;
 
 class IndexController extends BaseController

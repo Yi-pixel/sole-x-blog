@@ -5,7 +5,7 @@ namespace SoleX\Blog\App\Http\Controller;
 
 
 use Illuminate\Http\Request;
-use SoleX\Blog\App\Contracts\Repositories\PostRepository;
+use SoleX\Blog\App\Repositories\PostRepository;
 use SoleX\Blog\App\Traits\ViewTrait;
 
 class PostController extends BaseController

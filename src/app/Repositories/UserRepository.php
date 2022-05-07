@@ -7,8 +7,7 @@ namespace SoleX\Blog\App\Repositories;
 use Illuminate\Contracts\Auth\Authenticatable;
 use SoleX\Blog\App\Models\User;
 
-class UserRepository extends BaseRepository implements
-    \SoleX\Blog\App\Contracts\Repositories\UserRepository
+class UserRepository extends BaseRepository
 {
     protected string $model = User::class;
 
@@ -16,6 +15,7 @@ class UserRepository extends BaseRepository implements
     {
         $model = $this->model()->create($attributes);
         assert($model instanceof Authenticatable);
+
         return $model;
     }
 
@@ -23,6 +23,7 @@ class UserRepository extends BaseRepository implements
     {
         $model = $this->model()->where('email', $email)->firstOrFail();
         assert($model instanceof User);
+
         return $model;
     }
 }

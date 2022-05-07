@@ -7,7 +7,7 @@ namespace SoleX\Blog\App\Repositories;
 use Illuminate\Support\Collection;
 use SoleX\Blog\App\Models\Category as CategoryModel;
 
-class CategoryRepository extends BaseRepository implements \SoleX\Blog\App\Contracts\Repositories\CategoryRepository
+class CategoryRepository extends BaseRepository
 {
     protected string $model = CategoryModel::class;
 

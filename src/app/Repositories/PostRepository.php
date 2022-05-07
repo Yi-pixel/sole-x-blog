@@ -7,7 +7,7 @@ namespace SoleX\Blog\App\Repositories;
 use Illuminate\Contracts\Pagination\Paginator;
 use SoleX\Blog\App\Models\Post as PostModel;
 
-class PostRepository extends BaseRepository implements \SoleX\Blog\App\Contracts\Repositories\PostRepository
+class PostRepository extends BaseRepository
 {
     protected string $model = PostModel::class;
 
