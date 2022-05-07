@@ -54,7 +54,7 @@ class BlogServiceProvider extends ServiceProvider
 
             $path = implode('/', $paths);
             $path .= '.php';
-            $file = __DIR__ . 'BlogServiceProvider.php/' . $path;
+            $file = __DIR__ . '/' . $path;
 
             if (is_file($file)) {
                 require $file;
