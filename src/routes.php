@@ -34,7 +34,7 @@ Route::group([
 
         // 后台路由
         Route::group([
-            'prefix'     => SettingKeys::AdminUrl->fetch(),
+            'prefix'     => SettingKeys::AdminUrl->fetch(config('blog.admin_url', 'admin')),
             'middleware' => 'blog_admin',
         ], function () {
             Route::get('/login', AdminLoginController::class)->name('admin.login');
