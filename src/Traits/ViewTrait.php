@@ -43,7 +43,7 @@ trait ViewTrait
 
     private function controllerClassToPath($class): string
     {
-        $class = trim(str_replace(['SoleX\\Blog\\App\\Http\\Controller\\'], '', $class), '\\');
+        $class = trim(str_replace(['SoleX\\Blog\\Http\\Controller\\'], '', $class), '\\');
         if (str_ends_with($class, 'Controller')) {
             $class = substr($class, 0, -10);
         }

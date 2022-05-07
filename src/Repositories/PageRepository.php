@@ -4,6 +4,7 @@
 namespace SoleX\Blog\App\Repositories;
 
 
+use app\Repositories\BaseRepository;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use SoleX\Blog\App\Models\Page as PageModel;

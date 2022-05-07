@@ -45,7 +45,7 @@ INSERT INTO `admin_user` (`id`, `created_at`, `updated_at`, `user_id`, `password
 -- Dumping data for table `files`
 --
 
-INSERT INTO `files` (`id`, `created_at`, `updated_at`, `deleted_at`, `path`, `filename`, `size`, `storage_driver`, `mime_type`, `attachable_type`, `attachable_group`, `attachable_id`, `hash`, `user_id`, `unsafe_cause`, `is_safe`, `is_public`, `is_enable`) VALUES (1,NULL,NULL,NULL,'http://q1.qlogo.cn/g?b=qq&nk=721796631&s=640','111','0','local','image/png','SoleX\\Blog\\App\\Models\\User','avatar',10,'131312',10,NULL,0,1,1),(2,NULL,NULL,NULL,'https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60','1','0','local','image/png','SoleX\\Blog\\App\\Models\\Post','cover',1,'12321321',10,NULL,0,1,1);
+INSERT INTO `files` (`id`, `created_at`, `updated_at`, `deleted_at`, `path`, `filename`, `size`, `storage_driver`, `mime_type`, `attachable_type`, `attachable_group`, `attachable_id`, `hash`, `user_id`, `unsafe_cause`, `is_safe`, `is_public`, `is_enable`) VALUES (1,NULL,NULL,NULL,'http://q1.qlogo.cn/g?b=qq&nk=721796631&s=640','111','0','local','image/png','SoleX\\Blog\\Models\\User','avatar',10,'131312',10,NULL,0,1,1),(2,NULL,NULL,NULL,'https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTd8fGZsb3dlcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60','1','0','local','image/png','SoleX\\Blog\\Models\\Post','cover',1,'12321321',10,NULL,0,1,1);
 
 --
 -- Dumping data for table `users`

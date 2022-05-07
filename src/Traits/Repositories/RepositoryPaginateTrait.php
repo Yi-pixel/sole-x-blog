@@ -5,7 +5,7 @@ namespace SoleX\Blog\App\Traits\Repositories;
 
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
-use SoleX\Blog\App\Repositories\BaseRepository;
+use app\Repositories\BaseRepository;
 
 /**
  * Trait RepositoryPaginateTrait

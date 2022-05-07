@@ -57,7 +57,7 @@ class ComponentServiceProvider extends ServiceProvider
      */
     public static function classToPath(string $class): string
     {
-        $subClass = str_replace('SoleX\\Blog\\App\\View\\Components\\', '', $class);
+        $subClass = str_replace('SoleX\\Blog\\View\\Components\\', '', $class);
         return collect(explode('\\', $subClass))
             ->map(fn($item) => Str::snake($item))
             ->implode('.');

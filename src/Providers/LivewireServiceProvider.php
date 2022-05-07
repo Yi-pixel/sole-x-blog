@@ -22,7 +22,7 @@ class LivewireServiceProvider extends ServiceProvider
             if (!class_exists($class)) {
                 continue;
             }
-            $subClass = str_replace('SoleX\\Blog\\App\\Http\\Livewire\\', '', $class);
+            $subClass = str_replace('SoleX\\Blog\\Http\\Livewire\\', '', $class);
             $name = collect(explode('\\', $subClass))
                 ->map(fn($item) => Str::snake($item))
                 ->implode('.');

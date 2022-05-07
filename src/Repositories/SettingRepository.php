@@ -4,6 +4,7 @@
 namespace SoleX\Blog\App\Repositories;
 
 
+use app\Repositories\BaseRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use JetBrains\PhpStorm\ExpectedValues;

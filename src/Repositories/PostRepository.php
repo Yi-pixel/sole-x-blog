@@ -4,6 +4,7 @@
 namespace SoleX\Blog\App\Repositories;
 
 
+use app\Repositories\BaseRepository;
 use Illuminate\Contracts\Pagination\Paginator;
 use SoleX\Blog\App\Models\Post as PostModel;
 

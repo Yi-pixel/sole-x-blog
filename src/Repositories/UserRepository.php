@@ -4,6 +4,7 @@
 namespace SoleX\Blog\App\Repositories;
 
 
+use app\Repositories\BaseRepository;
 use Illuminate\Contracts\Auth\Authenticatable;
 use SoleX\Blog\App\Models\User;
 

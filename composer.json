@@ -27,7 +27,6 @@
     },
     "autoload": {
         "psr-4": {
-            "SoleX\\Blog\\App\\": "src/app",
             "SoleX\\Blog\\": "src/"
         }
     },
@@ -35,13 +34,13 @@
         "laravel": {
             "providers": [
                 "\\SoleX\\Blog\\BlogServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\SettingServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\ThemeServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\LivewireServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\ComponentServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\UserAuthorityServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\CategoryRouterServiceProvider",
-                "\\SoleX\\Blog\\App\\Providers\\PageRouterServiceProvider"
+                "\\SoleX\\Blog\\Providers\\SettingServiceProvider",
+                "\\SoleX\\Blog\\Providers\\ThemeServiceProvider",
+                "\\SoleX\\Blog\\Providers\\LivewireServiceProvider",
+                "\\SoleX\\Blog\\Providers\\ComponentServiceProvider",
+                "\\SoleX\\Blog\\Providers\\UserAuthorityServiceProvider",
+                "\\SoleX\\Blog\\Providers\\CategoryRouterServiceProvider",
+                "\\SoleX\\Blog\\Providers\\PageRouterServiceProvider"
             ],
             "aliases": {
             }
