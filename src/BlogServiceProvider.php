@@ -82,7 +82,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
         $this->loadTranslationsFrom(__DIR__ . '/../resources/lang/', $namespace);
         $this->loadViewsFrom(__DIR__ . '/../resources/views/', $namespace);
-        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->registerRoutes();
         if ($this->app->runningInConsole()) {
             $this->commands($this->registerCommands());
         }
@@ -113,5 +113,14 @@ class BlogServiceProvider extends ServiceProvider
         Blade::directive('markdown', function ($expression) {
             return "<?=\Illuminate\Mail\Markdown::parse($expression)?>";
         });
+    }
+
+    /**
+     * @return void
+     */
+    private function registerRoutes(): void
+    {
+        $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../routes/admin.php');
     }
 }
