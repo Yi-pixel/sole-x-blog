@@ -105,7 +105,13 @@ class BlogServiceProvider extends ServiceProvider
 
     private function registerCommands(): array
     {
-        return [];
+        $files = glob(__DIR__ . '/Console/Commands/*.php');
+        $commands = [];
+        foreach ($files as $file) {
+            $commands[] = (new ParseFileClass($file))->getFullClass();
+        }
+
+        return $commands;
     }
 
     private function extendBladeMarkdown(): void

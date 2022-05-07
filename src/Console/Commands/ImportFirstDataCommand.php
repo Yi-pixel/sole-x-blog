@@ -1,5 +1,7 @@
 <?php
 
+namespace SoleX\Blog\Console\Commands;
+
 class ImportFirstDataCommand extends \Illuminate\Console\Command
 {
     protected $signature   = 'blog:import-first-data';
