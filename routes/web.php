@@ -11,13 +11,12 @@ use SoleX\Blog\Http\Controller\User\IndexController as UserIndexController;
 use SoleX\Blog\Http\Controller\User\LoginController;
 use SoleX\Blog\Http\Controller\User\RegisterController;
 
-$setting = app(SettingRepository::class);
 
 Route::group([
-    'prefix'     => SettingKeys::UrlPrefix->fetch(config('blog.url_prefix')),
+    'prefix'     => config('blog.url_prefix'),
     'middleware' => 'web',
 ],
-    function () use ($setting) {
+    function () {
         Route::get('/', IndexController::class);
 
         Route::group(['prefix' => 'user'], function () {
@@ -34,7 +33,7 @@ Route::group([
 
         // 后台路由
         Route::group([
-            'prefix'     => SettingKeys::AdminUrl->fetch(config('blog.admin_url', 'admin')),
+            'prefix'     => config('blog.admin_url', 'admin'),
             'middleware' => 'blog_admin',
         ], function () {
             Route::get('/login', AdminLoginController::class)->name('admin.login');
