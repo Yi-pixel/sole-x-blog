@@ -3,7 +3,7 @@
     <div class="bg-gray-200 md:py-5 min-h-screen dark:bg-transparent md:grid md:grid-cols-12">
         <div class="max-w-screen-xl md:col-span-7 md:col-start-2">
             <div class="post-list sm:space-y-10 space-y-5">
-                @inject('postRepository', \SoleX\Blog\App\Contracts\Repositories\PostRepository::class)
+                @inject('postRepository', \SoleX\Blog\App\Repositories\PostRepository::class)
                 @php
                     $list = $postRepository->listForPaginate(perPage: min(\Illuminate\Support\Facades\Request::get('per_page', 10), 20), with: ['tags','user','cover'])
                 @endphp
