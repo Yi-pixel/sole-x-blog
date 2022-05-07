@@ -24,7 +24,7 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerLoader();
-        $this->mergeConfigFrom(__DIR__ . '/config/blog.php', 'blog');
+        $this->mergeConfigFrom(dirname(__DIR__) . '/config/blog.php', 'blog');
 
         $this->registerUserWrapper();
     }
@@ -58,8 +58,10 @@ class BlogServiceProvider extends ServiceProvider
 
             if (is_file($file)) {
                 require $file;
+
                 return true;
             }
+
             return false;
         });
     }
@@ -76,20 +78,21 @@ class BlogServiceProvider extends ServiceProvider
         App::setLocale('zh_CN');
         $namespace = self::NAMESPACE;
         $this->registerMiddlewareAlias();
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations');
-        $this->loadTranslationsFrom(__DIR__ . '/resources/lang/', $namespace);
-        $this->loadRoutesFrom(__DIR__ . '/routes.php');
-        $this->loadViewsFrom(__DIR__ . '/resources/views/', $namespace);
+        $packageRoot = dirname(__DIR__);
+
+        $this->loadMigrationsFrom($packageRoot . '/database/migrations');
+        $this->loadTranslationsFrom($packageRoot . '/resources/lang/', $namespace);
+        $this->loadViewsFrom($packageRoot . '/resources/views/', $namespace);
 
         if ($this->app->runningInConsole()) {
             $this->commands($this->registerCommands());
         }
 
         $this->publishes([
-            __DIR__ . '/resources/' => public_path('vendor/' . $namespace),
+            $packageRoot . '/resources/' => public_path('vendor/' . $namespace),
         ], 'resource');
         $this->publishes([
-            __DIR__ . '/config/blog.php' => config_path('blog.php'),
+            $packageRoot . '/config/blog.php' => config_path('blog.php'),
         ], 'config');
 
         $this->extendBladeMarkdown();
