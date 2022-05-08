@@ -99,13 +99,33 @@
                     </div>
                 @endif
                 <div class="post__manage my-5 flex text-sm text-gray-600">
-                    <div class="post__manage-summary cursor-pointer" title="{{ $updateAt->toIso8601String() }}">
+                    <div class="post__manage-summary cursor-pointer self-center" title="{{ $updateAt->toIso8601String() }}">
                         @lang('最后更新'): {{ $updateAt?->toDateString() }}
                     </div>
                     @if(\SoleX\Blog\Enums\Abilities::SuperAdmin->can())
-                        <div class="post__manage-operate ml-auto">
+                        <div class="post__manage-operate ml-auto" x-data="{show: false}">
                             <a href="javascript:" class="mx hover:text-zinc-900">@lang('编辑')</a>
-                            <a href="javascript:" class="mx hover:text-zinc-900">@lang('删除')</a>
+                            <div class="relative inline-block">
+                                <!-- Dropdown toggle button -->
+                                <a class="relative z-10 block cursor-pointer p-2 text-gray-700 bg-white border select-none border-transparent rounded-md dark:text-white focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-gray-800 focus:outline-none"
+                                   @click="show = !show">
+                                    操作
+                                </a>
+
+                                <!-- Dropdown menu -->
+                                <div class="absolute right-0 z-20 w-32 py-2 mt-2 border translate-x-1/2 bg-white rounded-md shadow-xl dark:bg-gray-800"
+                                     :class="!show && 'hidden'"
+                                     x-transition>
+                                    <a href="#"
+                                       class="block px-4 py-3 text-sm text-red-400 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-red-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                        删除
+                                    </a>
+                                    <a href="#"
+                                       class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                        投诉
+                                    </a>
+                                </div>
+                            </div>
                             <a href="javascript:" class="mx hover:text-zinc-900">@lang('历史版本')</a>
                         </div>
                     @endif
