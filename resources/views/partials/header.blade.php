@@ -62,7 +62,7 @@
                             <button class="relative z-10 block pl-2 pr-3 bg-white rounded-md dark:bg-gray-800 focus:outline-none">
                                 <svg class="w-5 h-5 text-gray-800 dark:text-white" xmlns="http://www.w3.org/2000/svg"
                                      viewBox="0 0 20 20" fill="currentColor">
-                                    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                                    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z" />
                                 </svg>
                             </button>
 
@@ -120,7 +120,7 @@
                                     <svg class="h-6 w-6 inline" fill="none" viewBox="0 0 24 24"
                                          stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/>
+                                              d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg>
                                     意见反馈
                                 </a>
@@ -138,9 +138,9 @@
                                     <svg class="h-6 w-6 inline" width="24" height="24" viewBox="0 0 24 24"
                                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
                                          stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z"/>
-                                        <path d="M7 6a7.75 7.75 0 1 0 10 0"/>
-                                        <line x1="12" y1="4" x2="12" y2="12"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" />
+                                        <path d="M7 6a7.75 7.75 0 1 0 10 0" />
+                                        <line x1="12" y1="4" x2="12" y2="12" />
                                     </svg>
                                     退出登录
                                 </a>
@@ -170,7 +170,7 @@
 
         <div class="py-2 mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
             <a class="mx-4 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:my-0"
-               href="/">首页</a>
+               href="{{ \SoleX\Blog\Utils\Helper::url('/') }}">首页</a>
             @inject('categoryRepository', \SoleX\Blog\Repositories\CategoryRepository::class)
             @foreach($categoryRepository->root() as $category)
                 <a class="mx-4 text-sm leading-5 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-indigo-400 hover:underline md:my-0"

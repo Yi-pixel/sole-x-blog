@@ -12,7 +12,7 @@
                     class="brade-crumbs flex text-gray-200 sm:my-5 sm:py-3 my-5 px-5 dark:border-b dark:border-gray-700 dark:text-blue-800">
                 <div class="inline-flex">
                     <span class="ri-home-2-line items-center mr-1 text-gray-500 dark:text-blue-800"></span>
-                    <a href="/" class="text-gray-500 hover:text-gray-600">首页</a>
+                    <a href="{{ \SoleX\Blog\Utils\Helper::url('/') }}" class="text-gray-500 hover:text-gray-600">首页</a>
                 </div>
                 <div class="mx-3">/</div>
                 <div><a class="text-gray-500 hover:text-gray-600"
