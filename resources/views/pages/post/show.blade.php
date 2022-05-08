@@ -19,8 +19,13 @@
             <div class="post__header border-b border-dashed px-5 dark:border-gray-600">
                 <div class="post__title text-2xl sm:text-4xl font-bold text-gray-700 pb-5 sm:pb-8 dark:text-gray-200">{{ $post['title'] }}</div>
                 <section class="py-2 text-gray-500 flex-col sm:flex-row text-sm pb-5">
-                    <div class="flex sm:inline-flex items-center mr-5" title="发布时间">
-                        <span class="ri-calendar-2-fill mr-2"></span>{{ \Illuminate\Support\Carbon::parse($post['created_at'] ?? 'now') }}
+                    @php
+                        $publishAt = \Illuminate\Support\Carbon::parse($post['created_at'] ?? 'now');
+                    @endphp
+                    <div class="flex sm:inline-flex items-center mr-5"
+                         x-data="{ iso: '{{ $publishAt->toIso8601String() }}', short: '{{ $publishAt->shortRelativeToNowDiffForHumans() }}',show: '{{ $publishAt->shortRelativeToNowDiffForHumans() }}' }"
+                         title="{{ $publishAt->toIso8601String() }}">
+                        <span class="ri-calendar-2-fill mr-2"></span><span x-text="show" @click="show = iso"></span>
                     </div>
                     <div class="flex sm:inline-flex items-center mr-5" title="查看作者主页">
                         <span class="ri-user-location-line mr-2"></span>{{ $post['user']['name'] }}
