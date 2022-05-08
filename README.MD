@@ -6,4 +6,4 @@
 特别感谢以下优秀开源项目对于本项目的帮助（排名不分先后）。
 
 - [Meraki UI](https://github.com/bakateam/merakiui)
-
+- [HyperUI](https://www.hyperui.dev/)
