@@ -1,12 +1,3 @@
-<!--
-  This component uses @tailwindcss/forms
-
-  yarn add @tailwindcss/forms
-  npm install @tailwindcss/forms
-
-  plugins: [require('@tailwindcss/forms')]
--->
-
 <footer class="bg-gray-900">
     <div class="grid max-w-screen-xl grid-cols-1 mx-auto lg:grid-cols-2">
         <div class="px-4 py-16 border-b border-gray-800 md:border-b-0 md:border-l lg:pl-12 lg:order-last">
