@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('content')
     @push('css')
-        <link rel="stylesheet" href="{{ mix('css/markdown-theme/light.css') }}">
+        {{--<link rel="stylesheet" href="{{ mix('css/markdown-theme/light.css') }}">--}}
     @endpush
     @php($publishAt = \Illuminate\Support\Carbon::parse($post['created_at'] ?? 'now'))
     @php($updateAt = ($post['update_at'] ?: $publishAt))
