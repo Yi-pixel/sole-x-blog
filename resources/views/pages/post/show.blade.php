@@ -28,14 +28,14 @@
                         <span class="ri-calendar-2-fill mr-2"></span><span class="cursor-pointer" x-text="show"
                                                                            @click="show = iso"></span>
                     </div>
-                    <div class="flex sm:inline-flex items-center mr-5" title="查看作者主页">
+                    <div class="flex sm:inline-flex items-center mr-5" title="@lang('查看作者主页')">
                         <span class="ri-user-location-line mr-2"></span>{{ $post['user']['name'] }}
                     </div>
-                    <div class="flex sm:inline-flex items-center mr-5" title="浏览次数">
+                    <div class="flex sm:inline-flex items-center mr-5" title="@lang('浏览次数')">
                         <span class="ri-eye-line mr-2"></span><span
                                 class="mx-1">{{ $post['views'] ?: 0 }}</span>人
                     </div>
-                    <div class="flex sm:inline-flex items-center mr-5" title="评论数">
+                    <div class="flex sm:inline-flex items-center mr-5" title="@lang('评论数')">
                         <span class="ri-discuss-line mr-2"></span><span
                                 class="mx-1">{{ $post['comment_count'] ?: 0 }}</span>人
                     </div>
@@ -57,14 +57,14 @@
                                stroke-width="2">
                             <path stroke-linecap="round"
                                   stroke-linejoin="round"
-                                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                           </svg>
                         </span>
 
                         <p>
-                            <strong class="text-base font-medium font-bold"> 注意 </strong>
+                            <strong class="md:text-base font-medium font-bold text-sm">@lang('注意')</strong>
 
-                            <span class="block text-sm opacity-90 mt-1">本文最后更新于 {{ $updateAt->toDateString() }}, 可能已经失效，不再具有参考性。</span>
+                            <span class="block md:text-sm opacity-90 mt-1 text-xs">本文最后更新于 {{ $updateAt->toDateString() }}, 可能已经失效，不再具有参考性。</span>
                         </p>
                     </div>
 
@@ -77,7 +77,7 @@
                              fill="currentColor">
                             <path fill-rule="evenodd"
                                   d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                  clip-rule="evenodd"/>
+                                  clip-rule="evenodd" />
                         </svg>
                     </button>
                 </div>
@@ -93,21 +93,20 @@
                              viewBox="0 0 24 24"
                              stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                  d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                                  d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z" />
                         </svg>
                         @each('partials.index.post-item-tag', $post['tags'] ?? [],'tag')
                     </div>
                 @endif
                 <div class="post__manage my-5 flex text-sm text-gray-600">
                     <div class="post__manage-summary cursor-pointer" title="{{ $updateAt->toIso8601String() }}">
-                        {{ _('最后更新') }}: {{ $updateAt?->toDateString() }}
+                        @lang('最后更新'): {{ $updateAt?->toDateString() }}
                     </div>
                     @if(\SoleX\Blog\Enums\Abilities::SuperAdmin->can())
                         <div class="post__manage-operate ml-auto">
-                            <a href="javascript:" class="mx hover:text-zinc-900">编辑</a>
-                            <a href="javascript:" class="mx hover:text-zinc-900">删除</a>
-                            <a href="javascript:" class="mx hover:text-zinc-900">隐藏</a>
-                            <a href="javascript:" class="mx hover:text-zinc-900">历史版本</a>
+                            <a href="javascript:" class="mx hover:text-zinc-900">@lang('编辑')</a>
+                            <a href="javascript:" class="mx hover:text-zinc-900">@lang('删除')</a>
+                            <a href="javascript:" class="mx hover:text-zinc-900">@lang('历史版本')</a>
                         </div>
                     @endif
                 </div>
