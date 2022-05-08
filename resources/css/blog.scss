@@ -1,5 +1,7 @@
 @import "../../../../node_modules/remixicon/fonts/remixicon.css";
 
+[x-cloak]{display: none!important;}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;

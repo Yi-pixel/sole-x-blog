@@ -103,7 +103,7 @@
                         @lang('最后更新'): {{ $updateAt?->toDateString() }}
                     </div>
                     @if(\SoleX\Blog\Enums\Abilities::SuperAdmin->can())
-                        <div class="post__manage-operate ml-auto" x-data="{show: false}">
+                        <div class="post__manage-operate ml-auto" x-data="{show: false}" x-init="$(`[data-el-id='operate-menu']`).removeClass('hidden')">
                             <a href="javascript:" class="mx hover:text-zinc-900">@lang('编辑')</a>
                             <div class="relative inline-block">
                                 <!-- Dropdown toggle button -->
@@ -113,12 +113,16 @@
                                 </a>
 
                                 <!-- Dropdown menu -->
-                                <div class="absolute right-0 z-20 w-32 py-2 mt-2 border translate-x-1/2 bg-white rounded-md shadow-xl dark:bg-gray-800"
+                                <div data-el-id="operate-menu" class="absolute right-0 z-20 w-32 hidden py-2 mt-2 border translate-x-1/2 bg-white rounded-md shadow-xl dark:bg-gray-800"
                                      :class="!show && 'hidden'"
                                      x-transition>
                                     <a href="#"
                                        class="block px-4 py-3 text-sm text-red-400 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-red-100 dark:hover:bg-gray-700 dark:hover:text-white">
                                         删除
+                                    </a>
+                                    <a href="#"
+                                       class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                        隐藏
                                     </a>
                                     <a href="#"
                                        class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
