@@ -5,7 +5,7 @@
     @endpush
     @php($publishAt = \Illuminate\Support\Carbon::parse($post['created_at'] ?? 'now'))
     @php($updateAt = ($post['update_at'] ?: $publishAt))
-
+    @section('title', $post['title'])
     <div class="bg-gray-200 md:py-5 dark:bg-transparent md:grid md:grid-cols-12">
         <div class="max-w-screen-xl md:col-span-7 md:col-start-2 bg-white dark:bg-gray-800">
             <section
