@@ -12,7 +12,7 @@
                      alt="">
             @else
 
-            <!-- Vote Counts -->
+                <!-- Vote Counts -->
                 <div class="grid grid-rows-2">
                     <div class="inline-block font-medium text-xl">
                         {{ $post['comment_count'] ?? 0 }}
@@ -79,9 +79,9 @@
                         </svg>
                         @each('partials.index.post-item-tag', $post['tags'] ?? [],'tag')
                     </div>
-            @endif
+                @endif
 
-            <!-- User -->
+                <!-- User -->
                 <div class="col-none hidden mr-2 lg:block lg:col-start-9 lg:col-end-12">
                     <a href="#" class="flex items-center" title="查看主页">
                         <img src="{{ $post['user']['avatar']['url'] ?? '' }}"
