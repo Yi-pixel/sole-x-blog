@@ -1,7 +1,13 @@
 const mix = require('laravel-mix')
 const tailwindcss = require('tailwindcss')
 
-mix.js('resources/js/app.js')
+mix.setPublicPath('public')
+mix.copy(
+  'public',
+  '../../public/vendor/sole-x/blog',
+)
+
+mix.js('resources/js/app.js', 'public/js')
 mix.sass('resources/css/app.scss', 'public/css')
 
 mix.options({
