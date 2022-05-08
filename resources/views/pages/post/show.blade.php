@@ -107,7 +107,7 @@
                             <a href="javascript:" class="mx hover:text-zinc-900">@lang('编辑')</a>
                             <div class="relative inline-block">
                                 <!-- Dropdown toggle button -->
-                                <a class="relative z-10 block cursor-pointer p-2 text-gray-700 bg-white border select-none border-transparent rounded-md dark:text-white focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-gray-800 focus:outline-none"
+                                <a class="relative z-10 block cursor-pointer p-2 bg-white border select-none border-transparent rounded-md focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-gray-800 focus:outline-none"
                                    @click="show = !show">
                                     操作
                                 </a>
@@ -117,7 +117,7 @@
                                      :class="!show && 'hidden'"
                                      x-transition>
                                     <a href="#"
-                                       class="block px-4 py-3 text-sm text-red-400 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-red-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                                       class="block px-4 py-3 text-sm text-red-400 capitalize transition-colors duration-200 transform hover:bg-red-100 dark:hover:bg-red-400 dark:text-white">
                                         删除
                                     </a>
                                     <a href="#"
