@@ -31,14 +31,6 @@ mix.options({
     })],
 })
 
-mix.webpackConfig({
-  resolve: {
-    symlinks: false,
-    alias: {
-      '@': path.resolve(__dirname, 'resources/js/'),
-    },
-  },
-})
 if (mix.inProduction()) {
   mix.version()
 }
