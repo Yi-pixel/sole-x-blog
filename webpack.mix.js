@@ -31,6 +31,8 @@ mix.options({
     })],
 })
 
+mix.extract(['alpinejs', 'jquery', 'lodash', 'axios'])
+
 if (mix.inProduction()) {
   mix.version()
 }
