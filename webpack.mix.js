@@ -6,7 +6,7 @@ const path = require('path')
 mix.setPublicPath('public')
 if (!mix.inProduction()) {
 
-  mix.copy(
+  mix.copyDirectory(
     path.resolve('./public'),
     path.resolve('../../public/vendor/sole-x/blog'),
   )
