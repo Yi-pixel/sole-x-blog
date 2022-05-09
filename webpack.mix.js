@@ -4,10 +4,14 @@ const purgeCss = require('@fullhuman/postcss-purgecss')
 const path = require('path')
 
 mix.setPublicPath('public')
-mix.copy(
-  'public',
-  '../../public/vendor/sole-x/blog',
-)
+if (!mix.inProduction()) {
+
+  mix.copy(
+    path.resolve('./public'),
+    path.resolve('../../public/vendor/sole-x/blog'),
+  )
+
+}
 
 mix.js('resources/js/app.js', 'public/js')
 mix.sass('resources/css/app.scss', 'public/css')
@@ -36,5 +40,5 @@ mix.webpackConfig({
   },
 })
 if (mix.inProduction()) {
-  // mix.version()
+  mix.version()
 }
