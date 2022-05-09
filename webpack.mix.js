@@ -18,7 +18,8 @@ mix.sass('resources/css/app.scss', 'public/css')
 
 mix.options({
   postCss: [
-    tailwindcss('./tailwind.config.js'), purgeCss({
+    tailwindcss('./tailwind.config.js'),
+    purgeCss({
       content: [
         'resources/**/*.blade.php',
         'resources/**/*.js',
@@ -31,7 +32,7 @@ mix.options({
     })],
 })
 
-mix.extract(['alpinejs', 'jquery', 'lodash', 'axios'])
+mix.extract(['alpinejs', 'jquery', 'lodash', 'axios', 'highlight.js'])
 
 if (mix.inProduction()) {
   mix.version()

@@ -21,6 +21,8 @@
 
 @include('blog::partials.footer')
 @livewireScripts
+<script src="{{ asset(mix('js/manifest.js', 'vendor/sole-x/blog')) }}" defer></script>
+<script src="{{ asset(mix('js/vendor.js', 'vendor/sole-x/blog')) }}" defer></script>
 <script src="{{ asset(mix('js/app.js', 'vendor/sole-x/blog')) }}" defer></script>
 @stack('js')
 </body>
