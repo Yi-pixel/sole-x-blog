@@ -2,7 +2,6 @@ import $ from 'jquery'
 import _ from 'lodash'
 import hljs from 'highlight.js'
 import Alpine from 'alpinejs'
-import 'highlight.js/styles/solarized-light.css';
 
 window.$ = $
 window.Alpine = Alpine

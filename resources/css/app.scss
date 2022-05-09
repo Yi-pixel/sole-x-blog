@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 @import "node_modules/remixicon/fonts/remixicon";
+@import "node_modules/highlight.js/styles/solarized-light";
 
 [x-cloak] {
   display: none !important;
