@@ -1,10 +1,21 @@
 import $ from 'jquery'
 import _ from 'lodash'
+import hljs from 'highlight.js'
+import Alpine from 'alpinejs'
+import 'highlight.js/styles/solarized-light.css';
+
+window.$ = $
+window.Alpine = Alpine
+
+require('./bootstrap');
+
+
+
+Alpine.start()
+
 // import 'remixicon/fonts/remixicon.css'
 // import Han from 'han-css/dist/han.min'
 // import 'han-css/dist/han.min.css'
-import hljs from 'highlight.js'
-import 'highlight.js/styles/solarized-light.css';
 
 window.addEventListener('DOMContentLoaded', function () {
   document.querySelectorAll('.markdown-body pre code').forEach((block) => {
